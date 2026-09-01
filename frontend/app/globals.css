@@ -94,9 +94,9 @@ body::after {
   width: 100%; height: 100%;
   z-index: -2;
   background-image: url('/coffee-land-logo.jpeg');
-  background-size: 320px auto;
+  background-size: 220px auto;
   background-repeat: repeat;
-  opacity: 0.035;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -122,6 +122,65 @@ body > #bg-particles {
 @keyframes floatParticles {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100vh); }
+}
+
+/* ========== PROMINENT LOGO BACKGROUND ========== */
+.logo-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.logo-bg {
+  position: absolute;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.15));
+  opacity: 0.16;
+}
+
+.logo-bg-center {
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logoCenterFloat 8s ease-in-out infinite;
+}
+
+.logo-bg-corner-tl {
+  width: 220px;
+  height: 220px;
+  top: -40px;
+  left: -40px;
+  opacity: 0.1;
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+.logo-bg-corner-br {
+  width: 280px;
+  height: 280px;
+  bottom: -60px;
+  right: -60px;
+  opacity: 0.1;
+  animation: logoFloat 7s ease-in-out infinite reverse;
+}
+
+@keyframes logoCenterFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  50% { transform: translate(-50%, -52%) scale(1.05) rotate(3deg); }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(5deg); }
+}
+
+@media (max-width: 768px) {
+  .logo-bg-center { width: 300px; height: 300px; }
+  .logo-bg-corner-tl, .logo-bg-corner-br { width: 160px; height: 160px; }
 }
 
 /* ========== TYPOGRAPHY ========== */

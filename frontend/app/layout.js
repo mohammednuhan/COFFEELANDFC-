@@ -35,6 +35,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${montserrat.variable} ${inter.variable}`}>
+        <div className="logo-background" aria-hidden="true">
+          <img src="/coffee-land-logo.jpeg" alt="" className="logo-bg logo-bg-center" />
+          <img src="/coffee-land-logo.jpeg" alt="" className="logo-bg logo-bg-corner logo-bg-corner-tl" />
+          <img src="/coffee-land-logo.jpeg" alt="" className="logo-bg logo-bg-corner logo-bg-corner-br" />
+        </div>
         <div id="bg-particles"></div>
         <Navbar />
         <main>{children}</main>
