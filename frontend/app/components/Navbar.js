@@ -26,7 +26,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header style={scrolled ? { background: "rgba(10, 18, 12, 0.95)", borderBottom: "1px solid rgba(212, 175, 55, 0.15)" } : {}}>
+    <header style={scrolled ? { background: "rgba(10, 18, 12, 0.97)", borderBottom: "1px solid rgba(212, 175, 55, 0.2)" } : {}}>
       <nav>
         <Link href="/" className="logo-container" onClick={closeMenu}>
           <img src="/coffee-land-logo.jpeg" alt="Coffeeland FC Logo" className="nav-logo" />

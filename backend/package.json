@@ -1,0 +1,14 @@
+{
+  "name": "coffeelandfc-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch server.js",
+    "start": "bun server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5"
+  }
+}

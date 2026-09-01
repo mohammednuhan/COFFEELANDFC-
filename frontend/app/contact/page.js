@@ -23,14 +23,14 @@ export default function ContactPage() {
         const form = e.target;
         const data = {
             name: `${form.firstName.value} ${form.lastName.value}`.trim(),
-            age: 0,
             email: form.email.value,
-            password: "contact-form",
-            location: form.phone.value,
+            phone: form.phone.value,
+            inquiry: form.inquiryType.value,
+            message: form.message.value,
         };
 
         try {
-            const res = await fetch("/api/register", {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

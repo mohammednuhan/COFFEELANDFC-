@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${montserrat.variable} ${inter.variable}`}>
+        <div id="bg-particles"></div>
         <Navbar />
         <main>{children}</main>
         <Footer />

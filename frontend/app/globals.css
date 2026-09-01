@@ -17,17 +17,17 @@
 
   --bg: #0A120C;
   --bg-alt: #0C1A0E;
-  --surface: #132916;
-  --surface-accent: #1A3A1E;
+  --surface: #14301b;
+  --surface-accent: #1c4124;
 
   --text: #F5F5F5;
   --text-muted: #B0BEB3;
   --white: #ffffff;
 
-  --glass: rgba(27, 94, 32, 0.08);
-  --glass-border: rgba(27, 94, 32, 0.2);
-  --glass-gold: rgba(212, 175, 55, 0.08);
-  --glass-gold-border: rgba(212, 175, 55, 0.2);
+  --glass: rgba(27, 94, 32, 0.12);
+  --glass-border: rgba(58, 133, 65, 0.35);
+  --glass-gold: rgba(212, 175, 55, 0.1);
+  --glass-gold-border: rgba(212, 175, 55, 0.3);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -65,41 +65,57 @@ html, body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* ========== ANIMATED BACKGROUND ========== */
+/* ========== LOGO-THEMED BACKGROUND ========== */
+/* Deep logo-green gradient base */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: -2;
+  z-index: -3;
   background:
-    radial-gradient(ellipse 600px 600px at 20% 20%, rgba(27, 94, 32, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 400px at 50% 50%, rgba(27, 94, 32, 0.04) 0%, transparent 70%);
-  animation: bgPulse 8s ease-in-out infinite alternate;
+    radial-gradient(ellipse 900px 700px at 15% 10%, #12381a 0%, transparent 60%),
+    radial-gradient(ellipse 800px 600px at 85% 90%, #0d2f14 0%, transparent 60%),
+    radial-gradient(ellipse 500px 400px at 70% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
+    linear-gradient(160deg, #0a120c 0%, #0d2b13 40%, #0a170c 100%);
+  animation: bgPulse 10s ease-in-out infinite alternate;
 }
 
 @keyframes bgPulse {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.05); }
+  0% { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.03); }
 }
 
-/* Floating particles */
+/* Logo watermark repeated across the background */
 body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+  background-image: url('/coffee-land-logo.jpeg');
+  background-size: 320px auto;
+  background-repeat: repeat;
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+/* Golden particles floating above the logo watermark */
+body > #bg-particles {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: -1;
   background-image:
-    radial-gradient(2px 2px at 10% 15%, rgba(212, 175, 55, 0.3), transparent),
-    radial-gradient(2px 2px at 30% 65%, rgba(27, 94, 32, 0.3), transparent),
-    radial-gradient(2px 2px at 50% 35%, rgba(212, 175, 55, 0.2), transparent),
-    radial-gradient(2px 2px at 70% 80%, rgba(27, 94, 32, 0.2), transparent),
-    radial-gradient(2px 2px at 90% 25%, rgba(212, 175, 55, 0.25), transparent),
-    radial-gradient(1px 1px at 15% 85%, rgba(27, 94, 32, 0.2), transparent),
-    radial-gradient(1px 1px at 60% 10%, rgba(212, 175, 55, 0.2), transparent),
-    radial-gradient(1px 1px at 85% 55%, rgba(27, 94, 32, 0.15), transparent);
+    radial-gradient(2px 2px at 10% 15%, rgba(212, 175, 55, 0.4), transparent),
+    radial-gradient(2px 2px at 30% 65%, rgba(46, 125, 50, 0.4), transparent),
+    radial-gradient(2px 2px at 50% 35%, rgba(212, 175, 55, 0.3), transparent),
+    radial-gradient(2px 2px at 70% 80%, rgba(46, 125, 50, 0.3), transparent),
+    radial-gradient(2px 2px at 90% 25%, rgba(212, 175, 55, 0.35), transparent),
+    radial-gradient(1px 1px at 15% 85%, rgba(46, 125, 50, 0.3), transparent),
+    radial-gradient(1px 1px at 60% 10%, rgba(212, 175, 55, 0.3), transparent),
+    radial-gradient(1px 1px at 85% 55%, rgba(46, 125, 50, 0.25), transparent);
   animation: floatParticles 20s linear infinite;
 }
 
@@ -141,11 +157,11 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 18, 12, 0.85);
+  background: rgba(10, 18, 12, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 1000;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-gold-border);
   transition: all 0.4s var(--ease-out);
 }
 
@@ -527,7 +543,7 @@ nav {
 .stats li:hover strong { text-shadow: 0 0 12px rgba(212, 175, 55, 0.4); }
 
 /* ========== PROGRAMS ========== */
-.programs { padding: 100px 0; background: var(--bg-alt); }
+.programs { padding: 100px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
 
 .programs-grid {
   display: grid;
@@ -664,7 +680,7 @@ nav {
 .testimonial-author { font-weight: 700; color: var(--text-muted); font-size: 0.9rem; }
 
 /* ========== SPONSORS ========== */
-.sponsors-section { padding: 80px 0; background: var(--bg-alt); }
+.sponsors-section { padding: 80px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
 
 .sponsors-grid {
   display: flex;
@@ -701,7 +717,7 @@ nav {
 .cta-section {
   padding: 100px 0;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary-dark), var(--bg));
+  background: linear-gradient(135deg, #0d3b12, #0d2b13, #0a120c);
   position: relative;
   overflow: hidden;
 }
@@ -889,7 +905,7 @@ label {
 .page-header {
   padding: 160px 0 80px;
   text-align: center;
-  background: linear-gradient(180deg, var(--surface), var(--bg));
+  background: linear-gradient(180deg, #12321a 0%, var(--bg) 100%);
   position: relative;
   overflow: hidden;
 }

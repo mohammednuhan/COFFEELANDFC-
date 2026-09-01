@@ -1,22 +1,17 @@
 {
-  "name": "next_temp",
-  "version": "0.1.0",
+  "name": "coffeelandfc",
+  "version": "1.0.0",
   "private": true,
+  "description": "Coffeeland FC - Football Academy App (Next.js frontend + Bun backend)",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "install:all": "bun install --cwd backend && npm install --prefix frontend",
+    "dev:backend": "bun --cwd backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "concurrently \"bun --cwd backend run dev\" \"npm --prefix frontend run dev\"",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start"
   },
   "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6"
+    "concurrently": "^9.1.2"
   }
 }
