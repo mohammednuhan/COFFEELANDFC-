@@ -1,7 +1,36 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+
+function AnimatedCounter({ target, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    let current = 0;
+    const step = Math.ceil(target / 40);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { setCount(target); clearInterval(timer); }
+      else setCount(current);
+    }, 30);
+    return () => clearInterval(timer);
+  }, [started, target]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 export default function Home() {
   useEffect(() => {
@@ -21,24 +50,24 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section id="home" className="hero">
-        <div className="hero-content fade-in-up">
-          <h1>
+        <div className="hero-content">
+          <h1 className="fade-in-up">
             COFFEELAND <span className="accent">FC</span>
           </h1>
-          <p className="hero-tagline">Together Towards Tomorrow</p>
-          <p>
+          <p className="hero-tagline fade-in-up-delay-1">Together Towards Tomorrow</p>
+          <p className="fade-in-up-delay-2">
             Developing Football in Chikmagalur Since 2010.
             <br />
             <strong style={{ color: "var(--accent)" }}>
-              400+ Students • All Age Groups • KSFA Affiliated
+              <AnimatedCounter target={400} suffix="+ Students" /> • All Age Groups • KSFA Affiliated
             </strong>
           </p>
-          <div className="hero-stats-inline">
+          <div className="hero-stats-inline fade-in-up-delay-2">
             <span className="stat-badge">⚽ Est. 2010</span>
             <span className="stat-badge">🏆 KSFA Affiliated</span>
-            <span className="stat-badge">👥 400+ Players</span>
+            <span className="stat-badge">👥 <AnimatedCounter target={400} suffix="+" /> Players</span>
           </div>
-          <div className="hero-btns">
+          <div className="hero-btns fade-in-up-delay-2">
             <Link href="/contact" className="btn-primary">
               ⚽ Join Academy
             </Link>
@@ -106,10 +135,10 @@ export default function Home() {
               </p>
               <ul className="stats">
                 <li>
-                  <strong>14+</strong> Years of Excellence
+                  <strong><AnimatedCounter target={14} suffix="+" /></strong> Years of Excellence
                 </li>
                 <li>
-                  <strong>400+</strong> Active Students
+                  <strong><AnimatedCounter target={400} suffix="+" /></strong> Active Students
                 </li>
                 <li>
                   <strong>All</strong> Age Groups
@@ -135,7 +164,7 @@ export default function Home() {
           <p className="section-subtitle">
             Structured pathways for every age group, from grassroots to competitive excellence.
           </p>
-          <div className="programs-grid">
+          <div className="programs-grid stagger-children">
             <div className="program-card">
               <img src="/football-bg-v2.png" alt="Grassroots Training" className="program-card-img" />
               <div className="program-card-body">
@@ -185,7 +214,7 @@ export default function Home() {
           <p className="section-subtitle">
             Hear from parents, players, and our community about the Coffeeland FC experience.
           </p>
-          <div className="testimonials-container">
+          <div className="testimonials-container stagger-children">
             <div className="testimonial-card">
               <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
               <blockquote>
@@ -217,7 +246,7 @@ export default function Home() {
           <h2 className="section-title">
             Proudly Supported By Our <span className="accent">Community Partners</span>
           </h2>
-          <div className="sponsors-grid">
+          <div className="sponsors-grid stagger-children">
             <div className="sponsor-placeholder">Sponsor 1</div>
             <div className="sponsor-placeholder">Sponsor 2</div>
             <div className="sponsor-placeholder">Sponsor 3</div>
@@ -233,11 +262,11 @@ export default function Home() {
       {/* ===== CTA ===== */}
       <section className="cta-section">
         <div className="container">
-          <h2>
+          <h2 className="fade-in-up">
             Ready to Start Your <span className="accent">Football Journey?</span>
           </h2>
-          <p>Join 400+ students already training with Coffeeland FC. Your future starts here.</p>
-          <Link href="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+          <p className="fade-in-up-delay-1">Join 400+ students already training with Coffeeland FC. Your future starts here.</p>
+          <Link href="/contact" className="btn-primary fade-in-up-delay-2" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
             Enroll Now ⚽
           </Link>
         </div>

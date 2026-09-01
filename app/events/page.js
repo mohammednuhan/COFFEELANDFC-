@@ -19,17 +19,15 @@ export default function EventsPage() {
 
     return (
         <>
-            {/* Page Header */}
             <div className="page-header">
                 <div className="container">
-                    <h1>
+                    <h1 className="fade-in-up">
                         Events & <span className="accent">Tournaments</span>
                     </h1>
-                    <p>Celebrating victories, hosting competitions, and building community</p>
+                    <p className="fade-in-up-delay-1">Celebrating victories, hosting competitions, and building community</p>
                 </div>
             </div>
 
-            {/* Upcoming Tournaments / Registration */}
             <section className="animate-on-scroll">
                 <div className="container" style={{ textAlign: "center", maxWidth: "800px" }}>
                     <h2 className="section-title">
@@ -37,7 +35,7 @@ export default function EventsPage() {
                     </h2>
                     <p className="section-subtitle">Register your team for our upcoming local tournaments.</p>
 
-                    <div className="card gold-border" style={{ padding: "3rem 2rem" }}>
+                    <div className="card gold-border" style={{ padding: "3rem 2rem", position: "relative" }}>
                         <span className="badge" style={{ background: "var(--accent)", color: "var(--bg)", padding: "0.4rem 1rem", borderRadius: "50px", fontWeight: "bold", marginBottom: "1rem", display: "inline-block" }}>
                             REGISTRATION OPEN
                         </span>
@@ -58,33 +56,41 @@ export default function EventsPage() {
                 </div>
             </section>
 
-            {/* Past Tournaments */}
             <section style={{ background: "var(--bg-alt)" }} className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
                         Past <span className="accent">Glory</span>
                     </h2>
                     <p className="section-subtitle">
-                        Highlights from tournaments we've conquered and hosted.
+                        Highlights from tournaments we&apos;ve conquered and hosted.
                     </p>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+                    <div className="programs-grid stagger-children">
                         <div className="card">
-                            <img src="/dasara-champions.jpeg" alt="Dasara Cup" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem" }} />
+                            <img src="/dasara-champions.jpeg" alt="Dasara Cup" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem", transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+                            />
                             <h3 style={{ marginBottom: "0.5rem" }}>Dasara Cup Champions</h3>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
                                 The Senior Team lifting the prestigious Dasara Cup after a thrilling final penalty shootout victory.
                             </p>
                         </div>
                         <div className="card">
-                            <img src="/c-division-prize.jpeg" alt="C-Division Tournament" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem" }} />
+                            <img src="/c-division-prize.jpeg" alt="C-Division Tournament" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem", transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+                            />
                             <h3 style={{ marginBottom: "0.5rem" }}>C-Division League Runners-up</h3>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
                                 A phenomenal run in the KSFA C-Division League, earning a promotion spot to higher tiers.
                             </p>
                         </div>
                         <div className="card">
-                            <img src="/tournament-winners.jpeg" alt="Youth Tournament" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem" }} />
+                            <img src="/tournament-winners.jpeg" alt="Youth Tournament" style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem", transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+                            />
                             <h3 style={{ marginBottom: "0.5rem" }}>U15 District Tournament Winners</h3>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
                                 Our youth squad dominated the local district tournament, showcasing the strength of our grassroots program.

@@ -21,17 +21,15 @@ export default function AcademyPage() {
 
     return (
         <>
-            {/* Page Header */}
             <div className="page-header">
                 <div className="container">
-                    <h1>
+                    <h1 className="fade-in-up">
                         The <span className="accent">Academy</span>
                     </h1>
-                    <p>Where champions are made — structured training for every age group</p>
+                    <p className="fade-in-up-delay-1">Where champions are made — structured training for every age group</p>
                 </div>
             </div>
 
-            {/* Why Choose CFC */}
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
@@ -40,15 +38,21 @@ export default function AcademyPage() {
                     <p className="section-subtitle">
                         We provide a professional, nurturing environment for aspiring footballers.
                     </p>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem" }}>
+                    <div className="programs-grid stagger-children">
                         {[
                             { icon: "🎯", title: "Qualified Coaches", desc: "Certified and experienced coaching staff focused on player development." },
                             { icon: "📋", title: "Structured Sessions", desc: "Age-appropriate training plans with progressive skill development." },
                             { icon: "💪", title: "Discipline & Fitness", desc: "Building physical endurance, mental strength, and healthy habits." },
                             { icon: "🌟", title: "Character Building", desc: "Teamwork, sportsmanship, and leadership skills on and off the field." },
                         ].map((item, i) => (
-                            <div className="card" key={i}>
-                                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>{item.icon}</div>
+                            <div className="card" key={i} style={{ textAlign: "center" }}>
+                                <div style={{
+                                    fontSize: "2.5rem", marginBottom: "1rem",
+                                    transition: "transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.3) rotate(-10deg)"}
+                                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1) rotate(0)"}
+                                >{item.icon}</div>
                                 <h3 style={{ marginBottom: "0.5rem" }}>{item.title}</h3>
                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>{item.desc}</p>
                             </div>
@@ -57,7 +61,6 @@ export default function AcademyPage() {
                 </div>
             </section>
 
-            {/* Age Categories */}
             <section style={{ background: "var(--bg-alt)" }} className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
@@ -76,45 +79,31 @@ export default function AcademyPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><strong style={{ color: "var(--text)" }}>U8 — Grassroots</strong></td>
-                                <td>6 – 8 years</td>
-                                <td>Ball mastery, coordination, and fun-based learning</td>
-                                <td>Mon – Sat</td>
-                            </tr>
-                            <tr>
-                                <td><strong style={{ color: "var(--text)" }}>U12 — Development</strong></td>
-                                <td>9 – 12 years</td>
-                                <td>Technique, game sense, and small-sided games</td>
-                                <td>Mon – Sat</td>
-                            </tr>
-                            <tr>
-                                <td><strong style={{ color: "var(--text)" }}>U15 — Competitive</strong></td>
-                                <td>13 – 15 years</td>
-                                <td>Tactical play, match simulation, and tournament prep</td>
-                                <td>Mon – Sat</td>
-                            </tr>
-                            <tr>
-                                <td><strong style={{ color: "var(--text)" }}>Senior — Elite</strong></td>
-                                <td>16+ years</td>
-                                <td>KSFA competition, C-Division & Super Division exposure</td>
-                                <td>Daily</td>
-                            </tr>
+                            {[
+                                { cat: "U8 — Grassroots", age: "6 – 8 years", focus: "Ball mastery, coordination, and fun-based learning", sched: "Mon – Sat" },
+                                { cat: "U12 — Development", age: "9 – 12 years", focus: "Technique, game sense, and small-sided games", sched: "Mon – Sat" },
+                                { cat: "U15 — Competitive", age: "13 – 15 years", focus: "Tactical play, match simulation, and tournament prep", sched: "Mon – Sat" },
+                                { cat: "Senior — Elite", age: "16+ years", focus: "KSFA competition, C-Division & Super Division exposure", sched: "Daily" },
+                            ].map((row, i) => (
+                                <tr key={i}>
+                                    <td><strong style={{ color: "var(--text)" }}>{row.cat}</strong></td>
+                                    <td>{row.age}</td>
+                                    <td>{row.focus}</td>
+                                    <td>{row.sched}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            {/* Training Locations */}
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
                         Training <span className="accent">Locations</span>
                     </h2>
-                    <p className="section-subtitle">
-                        Our training centers in Chikmagalur.
-                    </p>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+                    <p className="section-subtitle">Our training centers in Chikmagalur.</p>
+                    <div className="programs-grid">
                         <div className="card gold-border">
                             <h3 style={{ marginBottom: "0.8rem" }}>🏟️ District Field</h3>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
@@ -140,7 +129,6 @@ export default function AcademyPage() {
                 </div>
             </section>
 
-            {/* Fee Structure */}
             <section style={{ background: "var(--bg-alt)" }} className="animate-on-scroll">
                 <div className="container" style={{ textAlign: "center" }}>
                     <h2 className="section-title">
@@ -159,7 +147,7 @@ export default function AcademyPage() {
                             </button>
                         </div>
                     ) : (
-                        <div className="packages-grid">
+                        <div className="packages-grid stagger-children">
                             <div className="package-card">
                                 <h3>Monthly</h3>
                                 <div className="package-price">₹1,000<small>/mo</small></div>
@@ -184,42 +172,34 @@ export default function AcademyPage() {
                 </div>
             </section>
 
-            {/* Gallery */}
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
                         Training <span className="accent">Gallery</span>
                     </h2>
                     <p className="section-subtitle">Snapshots from the field — action, dedication, and teamwork.</p>
-                    <div className="gallery-grid">
-                        <div className="gallery-item">
-                            <img src="/team photo.jpeg" alt="Team Photo" />
-                        </div>
-                        <div className="gallery-item">
-                            <img src="/dasara-champions.jpeg" alt="Dasara Champions" />
-                        </div>
-                        <div className="gallery-item">
-                            <img src="/tournament-winners.jpeg" alt="Tournament Winners" />
-                        </div>
-                        <div className="gallery-item">
-                            <img src="/c-division-prize.jpeg" alt="C-Division" />
-                        </div>
-                        <div className="gallery-item">
-                            <img src="/ksfa-stadium.jpeg" alt="KSFA Stadium" />
-                        </div>
-                        <div className="gallery-item">
-                            <img src="/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg" alt="Training Session" />
-                        </div>
+                    <div className="gallery-grid stagger-children">
+                        {[
+                            { src: "/team photo.jpeg", alt: "Team Photo" },
+                            { src: "/dasara-champions.jpeg", alt: "Dasara Champions" },
+                            { src: "/tournament-winners.jpeg", alt: "Tournament Winners" },
+                            { src: "/c-division-prize.jpeg", alt: "C-Division" },
+                            { src: "/ksfa-stadium.jpeg", alt: "KSFA Stadium" },
+                            { src: "/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg", alt: "Training Session" },
+                        ].map((img, i) => (
+                            <div className="gallery-item" key={i}>
+                                <img src={img.src} alt={img.alt} />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA */}
             <section className="cta-section">
                 <div className="container">
-                    <h2>Ready to <span className="accent">Join the Academy?</span></h2>
-                    <p>Take the first step towards your football career with Coffeeland FC.</p>
-                    <Link href="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+                    <h2 className="fade-in-up">Ready to <span className="accent">Join the Academy?</span></h2>
+                    <p className="fade-in-up-delay-1">Take the first step towards your football career with Coffeeland FC.</p>
+                    <Link href="/contact" className="btn-primary fade-in-up-delay-2" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
                         Register Now ⚽
                     </Link>
                 </div>
