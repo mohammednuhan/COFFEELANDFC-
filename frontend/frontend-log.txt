@@ -1,0 +1,57 @@
+
+> coffeelandfc-frontend@1.0.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\all projects\coffeeland fc main\bun.lock as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\all projects\coffeeland fc main\frontend\package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.116:3000
+
+✓ Starting...
+✓ Ready in 596ms
+ GET / 200 in 2.1s (compile: 1932ms, render: 168ms)
+ GET / 200 in 149ms (compile: 6ms, render: 144ms)
+ GET /news 200 in 708ms (compile: 663ms, render: 45ms)
+ GET /contact 200 in 512ms (compile: 475ms, render: 37ms)
+ GET /news 200 in 31ms (compile: 5ms, render: 26ms)
+ GET /contact 200 in 36ms (compile: 3ms, render: 33ms)
+ GET / 200 in 28ms (compile: 5ms, render: 24ms)
+ GET /events 200 in 542ms (compile: 508ms, render: 34ms)
+ GET / 200 in 37ms (compile: 9ms, render: 28ms)
+ GET /about 200 in 537ms (compile: 491ms, render: 46ms)
+ GET /academy 200 in 571ms (compile: 535ms, render: 36ms)
+ GET /news 200 in 31ms (compile: 6ms, render: 24ms)
+ GET /contact 200 in 30ms (compile: 5ms, render: 25ms)
+ GET /news 200 in 36ms (compile: 7ms, render: 29ms)
+✓ Compiled in 38ms
+ GET / 200 in 196ms (compile: 109ms, render: 87ms)
+ GET /contact 200 in 161ms (compile: 93ms, render: 68ms)
+ GET /academy 200 in 189ms (compile: 99ms, render: 91ms)
+ GET /contact 200 in 40ms (compile: 7ms, render: 32ms)
+✓ Compiled in 25ms
+ GET / 200 in 200ms (compile: 98ms, render: 103ms)
+ GET /contact 200 in 28ms (compile: 5ms, render: 23ms)
+ GET / 200 in 28ms (compile: 1936µs, render: 26ms)
+✓ Compiled in 25ms
+✓ Compiled in 21ms
+✓ Compiled in 20ms
+✓ Compiled in 23ms
+ GET /about 200 in 208ms (compile: 108ms, render: 100ms)
+ GET / 200 in 167ms (compile: 6ms, render: 161ms)
+ GET /events 200 in 212ms (compile: 121ms, render: 90ms)
+ GET /news 200 in 166ms (compile: 93ms, render: 73ms)
+ GET /sponsors 200 in 558ms (compile: 526ms, render: 32ms)
+ GET /contact 200 in 44ms (compile: 6ms, render: 38ms)
+ GET / 200 in 26ms (compile: 5ms, render: 21ms)
+✓ Compiled in 18ms
+✓ Compiled in 20ms
+ GET / 200 in 118ms (compile: 57ms, render: 61ms)
+✓ Compiled in 12ms
+✓ Compiled in 12ms
+ GET / 200 in 296ms (compile: 106ms, render: 190ms)
