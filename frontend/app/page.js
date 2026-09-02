@@ -63,6 +63,27 @@ function HeroSlides() {
   );
 }
 
+function HomeMarquee() {
+  const items = [
+    "⚽ Grassroots (U8)",
+    "⚽ Youth (U12–U15)",
+    "⚽ Senior Team",
+    "⚽ Summer Camps",
+    "🏆 KSFA C-Division",
+    "⚽ Match Exposure",
+    "🥇 District Tournaments",
+  ];
+  return (
+    <div className="home-marquee">
+      <div className="home-marquee-track">
+        {[...items, ...items].map((item, i) => (
+          <span key={i} className="home-marquee-item">{item}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -80,6 +101,29 @@ export default function Home() {
                 Chikkamagaluru&apos;s premier academy developing football talent since 2010.
                 From grassroots beginners to KSFA C-Division competitors — build your football future with us.
               </p>
+              <div className="hero-feature-row fade-in-up-delay-2">
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🏅</span>
+                  <div>
+                    <strong>KSFA</strong>
+                    <small>Registered Club</small>
+                  </div>
+                </div>
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🧑‍🏫</span>
+                  <div>
+                    <strong>Elite</strong>
+                    <small>Coaching Staff</small>
+                  </div>
+                </div>
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🏟️</span>
+                  <div>
+                    <strong>League</strong>
+                    <small>Match Exposure</small>
+                  </div>
+                </div>
+              </div>
               <div className="hero-stats-inline fade-in-up-delay-2">
                 <span className="stat-badge">🏆 <AnimatedCounter target={25} suffix="+" /> Trophies</span>
                 <span className="stat-badge">👥 <AnimatedCounter target={400} suffix="+" /> Players</span>
@@ -91,29 +135,40 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-visual fade-in-up-delay-1">
-              <HeroSlides />
+              <div className="hero-slider-ring">
+                <HeroSlides />
+                <div className="hero-float-chip chip-tl">⭐ 5.0 Rated</div>
+                <div className="hero-float-chip chip-br">🏆 25+ Trophies</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ===== MARQUEE ===== */}
+      <HomeMarquee />
 
       {/* ===== QUICK STATS ===== */}
       <div className="quick-stats">
         <div className="container">
           <div className="quick-stats-grid">
             <div className="quick-stat">
+              <span className="quick-stat-icon">🏫</span>
               <span className="quick-stat-num"><AnimatedCounter target={14} suffix="+" /></span>
               <span className="quick-stat-label">Years of Football</span>
             </div>
             <div className="quick-stat">
+              <span className="quick-stat-icon">👨‍👩‍👧‍👦</span>
               <span className="quick-stat-num"><AnimatedCounter target={400} suffix="+" /></span>
               <span className="quick-stat-label">Active Students</span>
             </div>
             <div className="quick-stat">
+              <span className="quick-stat-icon">⚽</span>
               <span className="quick-stat-num">6+</span>
               <span className="quick-stat-label">Age Groups</span>
             </div>
             <div className="quick-stat">
+              <span className="quick-stat-icon">🏆</span>
               <span className="quick-stat-num">100%</span>
               <span className="quick-stat-label">KSFA Recognized</span>
             </div>

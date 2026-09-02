@@ -64,3 +64,27 @@
  GET /about 200 in 47ms (compile: 5ms, render: 42ms)
  GET /academy 200 in 47ms (compile: 5ms, render: 41ms)
  GET / 200 in 299ms (compile: 94ms, render: 205ms)
+ GET / 200 in 85ms (compile: 4ms, render: 81ms)
+ GET / 200 in 68ms (compile: 3ms, render: 64ms)
+ GET /coffee-land-logo.jpeg 404 in 579ms (compile: 472ms, render: 107ms)
+ GET /contact 200 in 211ms (compile: 113ms, render: 98ms)
+ GET / 200 in 31ms (compile: 6ms, render: 25ms)
+ GET /about 200 in 177ms (compile: 107ms, render: 70ms)
+ GET / 200 in 30ms (compile: 6ms, render: 23ms)
+ GET /about 200 in 37ms (compile: 5ms, render: 33ms)
+ GET /academy 200 in 162ms (compile: 99ms, render: 63ms)
+✓ Compiled in 23ms
+✓ Compiled in 30ms
+✓ Compiled in 24ms
+✓ Compiled in 22ms
+ GET / 200 in 279ms (compile: 95ms, render: 184ms)
+ GET /coffee-land-logo.jpeg 404 in 76ms (compile: 9ms, render: 67ms)
+ GET / 200 in 37ms (compile: 6ms, render: 30ms)
+ GET / 200 in 66ms (compile: 3ms, render: 63ms)
+ GET /coffee-land-logo.jpeg 404 in 106ms (compile: 9ms, render: 97ms)
+ GET /about 200 in 29ms (compile: 5ms, render: 24ms)
+ GET /academy 200 in 37ms (compile: 7ms, render: 31ms)
+ GET /events 200 in 187ms (compile: 118ms, render: 69ms)
+ GET /news 200 in 167ms (compile: 99ms, render: 69ms)
+ GET /sponsors 200 in 172ms (compile: 106ms, render: 66ms)
+ GET /contact 200 in 40ms (compile: 5ms, render: 34ms)
