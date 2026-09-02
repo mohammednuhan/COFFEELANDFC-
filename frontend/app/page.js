@@ -64,19 +64,6 @@ function HeroSlides() {
 }
 
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       {/* ===== HERO ===== */}
@@ -90,7 +77,7 @@ export default function Home() {
               </h1>
               <p className="hero-tagline fade-in-up-delay-1">Together Towards Tomorrow</p>
               <p className="hero-sub fade-in-up-delay-2">
-                Chikkamagaluru's premier academy developing football talent since 2010.
+                Chikkamagaluru&apos;s premier academy developing football talent since 2010.
                 From grassroots beginners to KSFA C-Division competitors — build your football future with us.
               </p>
               <div className="hero-stats-inline fade-in-up-delay-2">
@@ -99,7 +86,7 @@ export default function Home() {
                 <span className="stat-badge">⭐ 5.0 Rating</span>
               </div>
               <div className="hero-btns fade-in-up-delay-2">
-                <Link href="/contact" className="btn-primary">⚽ Join Academy</Link>
+                <Link href="/contact" className="btn-primary hero-cta">⚽ Join Academy</Link>
                 <Link href="/events" className="btn-outline">📅 View Events</Link>
               </div>
             </div>
@@ -110,7 +97,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== QUICK STATS BAR ===== */}
+      {/* ===== QUICK STATS ===== */}
       <div className="quick-stats">
         <div className="container">
           <div className="quick-stats-grid">
@@ -133,98 +120,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* ===== ABOUT / INTRO ===== */}
-      <section className="intro-section animate-on-scroll">
-        <div className="container">
-          <div className="intro-grid">
-            <div className="intro-media">
-              <img src="/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg" alt="Academy Training" className="intro-img" />
-              <div className="intro-badge">
-                <strong>Since</strong>
-                <span>2010</span>
-              </div>
-            </div>
-            <div className="intro-text">
-              <span className="section-eyebrow">Who We Are</span>
-              <h2>
-                The Home of Football in <span className="accent">Chikkamagaluru</span>
-              </h2>
-              <p>
-                Coffeeland Football Club is more than a club — it's a family united by a shared passion
-                for the beautiful game. Founded in 2010 and officially registered in 2016, we develop
-                players from the grassroots level to competitive excellence under the Karnataka State
-                Football Association.
-              </p>
-              <p>
-                Our experienced coaches, structured curriculum, and genuine community support help every
-                player grow — on the pitch and in life.
-              </p>
-              <div className="intro-perks">
-                <div className="perk"><span>🏅</span> KSFA Affiliated</div>
-                <div className="perk"><span>🧑‍🏫</span> Expert Coaches</div>
-                <div className="perk"><span>🏟️</span> League Exposure</div>
-                <div className="perk"><span>👨‍👩‍👧</span> Family Community</div>
-              </div>
-              <Link href="/about" className="btn-outline">Learn More About Us →</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="testimonials animate-on-scroll">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-eyebrow">Testimonials</span>
-            <h2 className="section-title">
-              What Our <span className="accent">Community Says</span>
-            </h2>
-          </div>
-          <div className="testimonials-container stagger-children">
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <blockquote>
-                &ldquo;The best football club in Chikkamagaluru, the best coaches and its family.&rdquo;
-              </blockquote>
-              <p className="testimonial-author">— Hruthwik Mr</p>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <blockquote>
-                &ldquo;Best football coaching centre in Chikmagalur. My kids love training here every day.&rdquo;
-              </blockquote>
-              <p className="testimonial-author">— IRFAN</p>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <blockquote>
-                &ldquo;Amazing atmosphere, disciplined coaching, and the kids have improved tremendously.&rdquo;
-              </blockquote>
-              <p className="testimonial-author">— Google Review</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CTA ===== */}
-      <section className="cta-section">
-        <div className="container">
-          <span className="section-eyebrow" style={{ color: "var(--accent)" }}>Join Us Today</span>
-          <h2 className="fade-in-up">
-            Ready to Start Your <span className="accent">Football Journey?</span>
-          </h2>
-          <p className="fade-in-up-delay-1">Join 400+ students already training with Coffeeland FC. Your future starts here.</p>
-          <div className="cta-btns fade-in-up-delay-2">
-            <Link href="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
-              Enroll Now ⚽
-            </Link>
-            <Link href="/sponsors" className="btn-outline" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
-              Become a Sponsor
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -94,9 +94,9 @@ body::after {
   width: 100%; height: 100%;
   z-index: -2;
   background-image: url('/coffee-land-logo.jpeg');
-  background-size: 220px auto;
+  background-size: 250px auto;
   background-repeat: repeat;
-  opacity: 0.08;
+  opacity: 0.12;
   pointer-events: none;
 }
 
@@ -188,20 +188,22 @@ h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
   color: var(--text);
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
-h1 { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 900; letter-spacing: -1px; }
-h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
-h3 { font-size: 1.4rem; font-weight: 700; }
+h1 { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 900; letter-spacing: -1.5px; }
+h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; }
+h3 { font-size: 1.3rem; font-weight: 700; }
 
 .section-title { text-align: center; margin-bottom: 1rem; }
 .section-title span { color: var(--accent); }
 .section-subtitle {
   text-align: center;
   color: var(--text-muted);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 3.5rem;
+  line-height: 1.8;
 }
 
 span.accent { color: var(--accent); }
@@ -355,12 +357,13 @@ nav {
 .nav-dropdown-wrapper > .nav-dropdown-trigger {
   border: 1px solid var(--glass-gold-border);
   background: var(--glass);
-  border-radius: 50px;
-  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
   font-weight: 700;
-  gap: 0.55rem;
+  gap: 0.4rem;
   transition: all 0.3s var(--ease-out);
-  animation: badgeFloat 3s ease-in-out infinite;
+  display: flex;
+  align-items: center;
 }
 
 .nav-dropdown-wrapper > .nav-dropdown-trigger::after { display: none; }
@@ -370,6 +373,12 @@ nav {
   color: var(--accent);
   border-color: var(--accent);
   box-shadow: var(--glow-gold);
+  background: var(--glass-gold);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-arrow {
@@ -377,6 +386,49 @@ nav {
 }
 
 .dropdown-arrow.open { transform: rotate(180deg); }
+
+/* ===== NAV JOIN BUTTON ===== */
+.nav-join-btn {
+  background: var(--gradient-gold);
+  color: var(--bg);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.4s var(--ease-bounce);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-join-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.5s;
+}
+
+.nav-join-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45), 0 0 16px rgba(212, 175, 55, 0.25);
+}
+
+.nav-join-btn:hover::before { left: 100%; }
+
+/* ===== HERO CTA BUTTON ===== */
+.hero-cta {
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  letter-spacing: 0.5px;
+}
 
 .nav-dropdown {
   position: absolute;
@@ -2196,19 +2248,20 @@ label {
   .nav-links li { width: 100%; text-align: center; }
   .nav-links a { font-size: 1.3rem; display: block; padding: 0.8rem; }
 
-  .nav-links .btn-primary {
+  .nav-links .nav-join-btn {
     display: inline-block;
     width: 80%;
     margin-top: 1rem;
     padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
   }
 
   .nav-dropdown-wrapper > .nav-dropdown-trigger {
-    font-size: 1.3rem;
     padding: 0.8rem;
     display: inline-flex;
     border-radius: 12px;
-    animation: none;
   }
 
   .nav-dropdown-trigger:hover::after { width: 0; }

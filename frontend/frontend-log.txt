@@ -55,3 +55,12 @@
 ✓ Compiled in 12ms
 ✓ Compiled in 12ms
  GET / 200 in 296ms (compile: 106ms, render: 190ms)
+ GET /contact 200 in 54ms (compile: 9ms, render: 45ms)
+ GET /sponsors 200 in 39ms (compile: 4ms, render: 35ms)
+ GET /news 200 in 33ms (compile: 5ms, render: 29ms)
+ GET /events 200 in 43ms (compile: 4ms, render: 38ms)
+ GET / 200 in 30ms (compile: 4ms, render: 26ms)
+✓ Compiled in 11ms
+ GET /about 200 in 47ms (compile: 5ms, render: 42ms)
+ GET /academy 200 in 47ms (compile: 5ms, render: 41ms)
+ GET / 200 in 299ms (compile: 94ms, render: 205ms)

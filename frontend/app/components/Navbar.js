@@ -66,7 +66,11 @@ export default function Navbar() {
               className={`nav-dropdown-trigger ${isAnyActive ? "nav-active" : ""}`}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Menu
+              <svg className="menu-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect y="1" width="18" height="2" rx="1" fill="currentColor" />
+                <rect y="8" width="18" height="2" rx="1" fill="currentColor" />
+                <rect y="15" width="18" height="2" rx="1" fill="currentColor" />
+              </svg>
               <svg
                 className={`dropdown-arrow ${isDropdownOpen ? "open" : ""}`}
                 width="10"
@@ -94,7 +98,7 @@ export default function Navbar() {
             </div>
           </li>
           <li className="nav-item">
-            <Link href="/contact" className="btn-primary" onClick={closeMenu}>
+            <Link href="/contact" className="nav-join-btn" onClick={closeMenu}>
               Join Now
             </Link>
           </li>
