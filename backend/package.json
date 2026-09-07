@@ -8,7 +8,9 @@
     "start": "bun server.js"
   },
   "dependencies": {
+    "@prisma/client": "^7.10.0",
     "better-sqlite3": "^11.7.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "jose": "^6.2.12"
   }
 }
