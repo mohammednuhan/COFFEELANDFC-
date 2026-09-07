@@ -28,14 +28,34 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, []);
+
   const dropdownItems = [
-    { href: "/", label: "Home", desc: "Welcome to Coffeeland FC" },
-    { href: "/about", label: "About Us", desc: "Our story & mission" },
-    { href: "/academy", label: "Academy", desc: "Training programs" },
-    { href: "/events", label: "Events", desc: "Fixtures & tournaments" },
-    { href: "/news", label: "News", desc: "Latest updates" },
-    { href: "/sponsors", label: "Sponsors", desc: "Community partners" },
-    { href: "/contact", label: "Contact", desc: "Get in touch with us" },
+    { href: "/", label: "Home", desc: "Welcome to Coffeeland FC", icon: "🏠" },
+    { href: "/about", label: "About Us", desc: "Our story & mission", icon: "📖" },
+    { href: "/academy", label: "Academy", desc: "Training programs", icon: "⚽" },
+    { href: "/events", label: "Events", desc: "Fixtures & tournaments", icon: "🏆" },
+    { href: "/news", label: "News", desc: "Latest updates", icon: "📰" },
+    { href: "/sponsors", label: "Sponsors", desc: "Community partners", icon: "🤝" },
+    { href: "/contact", label: "Contact", desc: "Get in touch with us", icon: "✉️" },
   ];
 
   const isAnyActive = dropdownItems.some((item) => pathname === item.href);
@@ -60,6 +80,10 @@ export default function Navbar() {
           <span></span>
         </button>
 
+        {isMobileMenuOpen && (
+          <div className="nav-backdrop" onClick={closeMenu} aria-hidden="true"></div>
+        )}
+
         <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
           <li className="nav-item nav-dropdown-wrapper" ref={dropdownRef}>
             <button
@@ -83,6 +107,7 @@ export default function Navbar() {
             </button>
             <div className={`nav-dropdown ${isDropdownOpen ? "show" : ""}`}>
               <div className="nav-dropdown-inner">
+                <div className="nav-dropdown-header">Navigate</div>
                 {dropdownItems.map((item) => (
                   <Link
                     key={item.href}
@@ -90,7 +115,10 @@ export default function Navbar() {
                     className={`nav-dropdown-item ${pathname === item.href ? "nav-active" : ""}`}
                     onClick={closeMenu}
                   >
-                    <span className="nav-dropdown-item-label">{item.label}</span>
+                    <span className="nav-dropdown-item-label">
+                      <span className="nav-dropdown-item-icon" aria-hidden="true">{item.icon}</span>
+                      {item.label}
+                    </span>
                     <span className="nav-dropdown-item-desc">{item.desc}</span>
                   </Link>
                 ))}

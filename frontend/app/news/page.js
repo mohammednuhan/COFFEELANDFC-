@@ -32,18 +32,15 @@ export default function NewsPage() {
                 <div className="container" style={{ maxWidth: "900px" }}>
 
                     <article className="card gold-border" style={{ marginBottom: "2rem" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                            <span style={{ background: "var(--primary)", padding: "0.3rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", color: "var(--white)", fontWeight: 700 }}>
+                        <div className="news-meta">
+                            <span className="news-tag" style={{ background: "var(--primary)", color: "var(--white)" }}>
                                 Match Result
                             </span>
-                            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>March 8, 2026</span>
+                            <span className="news-date">March 8, 2026</span>
                         </div>
-                        <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>CFC Senior Team Secures Crucial 2-1 Victory</h2>
-                        <img src="/c-division-prize.jpeg" alt="Match Details" style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem", transition: "transform 0.5s" }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-                        />
-                        <p style={{ color: "var(--text-muted)", lineHeight: "1.8", fontSize: "1.05rem" }}>
+                        <h2 className="news-title">CFC Senior Team Secures Crucial 2-1 Victory</h2>
+                        <img src="/c-division-prize.jpeg" alt="Match Details" className="news-article-img" />
+                        <p className="news-body">
                             In a thrilling encounter at the District Field, Coffeeland FC&apos;s Senior Team produced a magnificent comeback to win 2-1 against rivals. After conceding an early penalty, two second-half goals from our academy graduates secured all three points in the C-Division League.
                         </p>
                         <Link href="/contact" className="btn-outline" style={{ display: "inline-block", marginTop: "1.5rem" }}>
@@ -52,14 +49,14 @@ export default function NewsPage() {
                     </article>
 
                     <article className="card" style={{ marginBottom: "2rem" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                            <span style={{ background: "var(--accent)", padding: "0.3rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", color: "var(--bg)", fontWeight: 700 }}>
+                        <div className="news-meta">
+                            <span className="news-tag" style={{ background: "var(--accent)", color: "var(--bg)" }}>
                                 Announcement
                             </span>
-                            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>February 28, 2026</span>
+                            <span className="news-date">February 28, 2026</span>
                         </div>
-                        <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>Registration Open for Summer Football Camp 2026</h2>
-                        <p style={{ color: "var(--text-muted)", lineHeight: "1.8", fontSize: "1.05rem" }}>
+                        <h2 className="news-title">Registration Open for Summer Football Camp 2026</h2>
+                        <p className="news-body">
                             We are excited to announce our annual Summer Football Camp for boys and girls aged 6 to 15. The camp will focus on intensive skill development, small-sided games, and fostering a deep love for the sport. Spaces are limited, so early booking is highly recommended!
                         </p>
                         <Link href="/events" className="btn-outline" style={{ display: "inline-block", marginTop: "1.5rem" }}>
@@ -68,18 +65,15 @@ export default function NewsPage() {
                     </article>
 
                     <article className="card" style={{ marginBottom: "2rem" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                            <span style={{ background: "var(--glass)", border: "1px solid var(--glass-border)", padding: "0.3rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", color: "var(--text)", fontWeight: 700 }}>
+                        <div className="news-meta">
+                            <span className="news-tag" style={{ background: "var(--glass)", border: "1px solid var(--glass-border)", color: "var(--text)" }}>
                                 Player Achievement
                             </span>
-                            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>February 15, 2026</span>
+                            <span className="news-date">February 15, 2026</span>
                         </div>
-                        <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>Three CFC Youth Players Selected for State Trials</h2>
-                        <img src="/tournament-winners.jpeg" alt="Youth Players" style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "12px", marginBottom: "1rem", transition: "transform 0.5s" }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-                        />
-                        <p style={{ color: "var(--text-muted)", lineHeight: "1.8", fontSize: "1.05rem" }}>
+                        <h2 className="news-title">Three CFC Youth Players Selected for State Trials</h2>
+                        <img src="/tournament-winners.jpeg" alt="Youth Players" className="news-article-img" />
+                        <p className="news-body">
                             Massive congratulations to Rohan, Aarav, and Karthik from our U15 squad for being shortlisted for the Karnataka State team trials. This is a testament to their hard work, dedication, and the structured pathway provided by the Coffeeland FC coaching staff.
                         </p>
                     </article>

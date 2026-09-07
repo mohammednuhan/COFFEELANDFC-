@@ -69,31 +69,38 @@ export default function AcademyPage() {
                     <p className="section-subtitle">
                         Tailored training programs for different age groups and skill levels.
                     </p>
-                    <table className="styled-table">
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Age Group</th>
-                                <th>Focus Area</th>
-                                <th>Schedule</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {[
-                                { cat: "U8 — Grassroots", age: "6 – 8 years", focus: "Ball mastery, coordination, and fun-based learning", sched: "Mon – Sat" },
-                                { cat: "U12 — Development", age: "9 – 12 years", focus: "Technique, game sense, and small-sided games", sched: "Mon – Sat" },
-                                { cat: "U15 — Competitive", age: "13 – 15 years", focus: "Tactical play, match simulation, and tournament prep", sched: "Mon – Sat" },
-                                { cat: "Senior — Elite", age: "16+ years", focus: "KSFA competition, C-Division & Super Division exposure", sched: "Daily" },
-                            ].map((row, i) => (
-                                <tr key={i}>
-                                    <td><strong style={{ color: "var(--text)" }}>{row.cat}</strong></td>
-                                    <td>{row.age}</td>
-                                    <td>{row.focus}</td>
-                                    <td>{row.sched}</td>
+                    <div className="table-wrapper">
+                        <table className="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Age Group</th>
+                                    <th>Focus Area</th>
+                                    <th>Schedule</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { icon: "👶", cat: "U8 — Grassroots", age: "6 – 8 years", focus: "Ball mastery, coordination, and fun-based learning", sched: "Mon – Sat" },
+                                    { icon: "⚽", cat: "U12 — Development", age: "9 – 12 years", focus: "Technique, game sense, and small-sided games", sched: "Mon – Sat" },
+                                    { icon: "🔥", cat: "U15 — Competitive", age: "13 – 15 years", focus: "Tactical play, match simulation, and tournament prep", sched: "Mon – Sat" },
+                                    { icon: "🏆", cat: "Senior — Elite", age: "16+ years", focus: "KSFA competition, C-Division & Super Division exposure", sched: "Daily" },
+                                ].map((row, i) => (
+                                    <tr key={i}>
+                                        <td>
+                                            <span className="table-category-pill">
+                                                <span className="pill-icon">{row.icon}</span>
+                                                {row.cat}
+                                            </span>
+                                        </td>
+                                        <td><strong style={{ color: "var(--text)" }}>{row.age}</strong></td>
+                                        <td><span className="table-focus">{row.focus}</span></td>
+                                        <td><span className="table-schedule">🗓️ {row.sched}</span></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 

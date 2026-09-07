@@ -11,19 +11,21 @@ export default function Footer() {
             </div>
             <p>Developing football talent in Chikmagalur since 2010. KSFA affiliated club committed to grassroots excellence.</p>
             <div className="footer-social-icons">
-              <span className="footer-social-icon" title="Facebook">📘</span>
-              <span className="footer-social-icon" title="Instagram">📷</span>
-              <span className="footer-social-icon" title="Twitter">🐦</span>
-              <span className="footer-social-icon" title="YouTube">🎬</span>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="Facebook" aria-label="Facebook">📘</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="Instagram" aria-label="Instagram">📷</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="Twitter" aria-label="Twitter">🐦</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="YouTube" aria-label="YouTube">🎬</a>
             </div>
           </div>
 
           <div className="footer-links-section">
             <h4>Quick Links</h4>
             <ul>
+              <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/academy">Academy</Link></li>
               <li><Link href="/events">Events</Link></li>
+              <li><Link href="/news">News</Link></li>
               <li><Link href="/sponsors">Sponsors</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
