@@ -2346,6 +2346,36 @@ label {
   gap: 2rem;
 }
 
+.event-details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.event-details div {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  transition: all 0.3s var(--ease-out);
+}
+
+.event-details div:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.event-register-card {
+  padding: 3rem 2rem;
+}
+
 .event-card {
   background: var(--surface);
   border: 1px solid var(--glass-border);
@@ -2411,6 +2441,22 @@ label {
 @keyframes badgePulse {
   0%, 100% { transform: translateX(-50%) scale(1); }
   50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.badge-inline {
+  display: inline-block;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  background: var(--gradient-gold);
+  color: var(--bg);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ========== HAMBURGER ========== */
@@ -2799,6 +2845,22 @@ label {
 
   .contact-card { padding: 1.2rem; }
   .contact-grid { gap: 1.5rem; }
+
+  .sponsors-grid { gap: 1rem; }
+  .sponsor-placeholder { width: 100% !important; height: 70px !important; max-width: 200px; font-size: 0.85rem !important; }
+
+  .packages-grid { grid-template-columns: 1fr; }
+  .package-card { padding: 2rem 1.5rem; }
+
+  .badge { font-size: 0.65rem; }
+  .event-register-card { padding: 2rem 1.25rem; }
+  .event-details { gap: 0.8rem; }
+  .event-details div { width: 100%; justify-content: center; font-size: 0.88rem; }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) { padding-left: 45px; }
+  .timeline::before { left: 16px; }
+  .timeline-dot { left: 16px; width: 14px; height: 14px; }
 }
 
 @media (max-width: 360px) {

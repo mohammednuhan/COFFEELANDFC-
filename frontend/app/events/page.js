@@ -35,15 +35,15 @@ export default function EventsPage() {
                     </h2>
                     <p className="section-subtitle">Register your team for our upcoming local tournaments.</p>
 
-                    <div className="card gold-border" style={{ padding: "3rem 2rem", position: "relative" }}>
-                        <span className="badge" style={{ background: "var(--accent)", color: "var(--bg)", padding: "0.4rem 1rem", borderRadius: "50px", fontWeight: "bold", marginBottom: "1rem", display: "inline-block" }}>
+                    <div className="card gold-border event-register-card">
+                        <span className="badge badge-inline" style={{ background: "var(--accent)", marginBottom: "1rem" }}>
                             REGISTRATION OPEN
                         </span>
                         <h3 style={{ fontSize: "2rem", marginBottom: "1rem" }}>CFC Summer Cup 2026</h3>
-                        <p style={{ color: "var(--text-muted)", marginBottom: "1rem" }}>
+                        <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>
                             A high-intensity 5-a-side tournament for U15 and Open age categories. Cash prizes, trophies, and individual awards.
                         </p>
-                        <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginBottom: "2rem", flexWrap: "wrap", color: "var(--text-muted)", fontSize: "0.95rem" }}>
+                        <div className="event-details">
                             <div>📅 May 15 - May 16, 2026</div>
                             <div>📍 District Field, Chikmagalur</div>
                             <div>💰 Entry Fee: ₹1,500/team</div>
