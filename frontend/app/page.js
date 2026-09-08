@@ -85,6 +85,19 @@ function HomeMarquee() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ===== HERO ===== */}
@@ -175,6 +188,174 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ===== ABOUT PREVIEW ===== */}
+      <section className="home-about animate-on-scroll">
+        <div className="container">
+          <div className="home-about-grid">
+            <div className="home-about-text">
+              <span className="section-eyebrow">About The Club</span>
+              <h2>
+                Building Champions <span className="accent">Since 2010</span>
+              </h2>
+              <p>
+                Coffeeland FC was founded with a vision to nurture football talent in Chikmagalur.
+                What started with a handful of passionate players has grown into one of the region&apos;s
+                most respected football academies with over 400 active students.
+              </p>
+              <div className="home-about-highlights">
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>KSFA Affiliated & Recognized</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>C-Division League Competitors</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>Multiple Tournament Champions</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>Professional Coaching Staff</span>
+                </div>
+              </div>
+              <Link href="/about" className="btn-primary" style={{ marginTop: "1.5rem" }}>
+                Learn More About Us
+              </Link>
+            </div>
+            <div className="home-about-visual">
+              <div className="home-about-image-stack">
+                <img src="/team photo.jpeg" alt="Coffeeland FC Team" className="home-about-img home-about-img-1" />
+                <img src="/dasara-champions.jpeg" alt="Dasara Champions" className="home-about-img home-about-img-2" />
+                <div className="home-about-badge">
+                  <span className="badge-year">14+</span>
+                  <span className="badge-label">Years</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PROGRAMS PREVIEW ===== */}
+      <section className="home-programs animate-on-scroll">
+        <div className="container">
+          <div className="section-head">
+            <span className="section-eyebrow">What We Offer</span>
+            <h2>Our <span className="accent">Programs</span></h2>
+            <p className="section-subtitle">
+              From grassroots to competitive football — we have programs for every age and skill level.
+            </p>
+          </div>
+          <div className="home-programs-grid">
+            <div className="home-program-card">
+              <div className="home-program-icon">👶</div>
+              <h3>Grassroots (U8)</h3>
+              <p>Fun-based learning for ages 6–8. Ball mastery, coordination, and building love for the game.</p>
+              <Link href="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">⚽</div>
+              <h3>Development (U12)</h3>
+              <p>Technique and game sense for ages 9–12. Small-sided games and progressive skill building.</p>
+              <Link href="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">🔥</div>
+              <h3>Competitive (U15)</h3>
+              <p>Tactical play and match simulation for ages 13–15. Tournament preparation and strategy.</p>
+              <Link href="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">🏆</div>
+              <h3>Senior Elite</h3>
+              <p>KSFA competition preparation for 16+ players. C-Division and Super Division exposure.</p>
+              <Link href="/academy" className="home-program-link">Explore →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COACHES PREVIEW ===== */}
+      <section className="home-coaches animate-on-scroll">
+        <div className="container">
+          <div className="home-coaches-grid">
+            <div className="home-coaches-text">
+              <span className="section-eyebrow">Meet Our Team</span>
+              <h2>Expert <span className="accent">Coaches</span></h2>
+              <p>
+                Our coaching staff brings professional experience and certifications to develop
+                every player to their full potential. Led by Loyston Andrade, a C-License certified
+                coach with 5+ years of dedicated coaching experience.
+              </p>
+              <Link href="/about#coaches" className="btn-outline" style={{ marginTop: "1rem" }}>
+                Meet The Team
+              </Link>
+            </div>
+            <div className="home-coaches-cards">
+              <div className="home-coach-card">
+                <div className="home-coach-avatar">⚽</div>
+                <h4>Loyston Andrade</h4>
+                <p className="home-coach-role">Technical Director & Head Coach</p>
+                <p className="home-coach-badge">C-License Certified</p>
+              </div>
+              <div className="home-coach-card">
+                <div className="home-coach-avatar">🏆</div>
+                <h4>Core Team</h4>
+                <p className="home-coach-role">Operations & Strategy</p>
+                <p className="home-coach-badge">Professional Staff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== GALLERY PREVIEW ===== */}
+      <section className="home-gallery animate-on-scroll">
+        <div className="container">
+          <div className="section-head">
+            <span className="section-eyebrow">From The Field</span>
+            <h2>Training <span className="accent">Gallery</span></h2>
+            <p className="section-subtitle">Action, dedication, and teamwork captured on the field.</p>
+          </div>
+          <div className="home-gallery-grid">
+            {[
+              { src: "/team photo.jpeg", alt: "Team Photo" },
+              { src: "/dasara-champions.jpeg", alt: "Dasara Champions" },
+              { src: "/tournament-winners.jpeg", alt: "Tournament Winners" },
+              { src: "/ksfa-stadium.jpeg", alt: "KSFA Stadium" },
+              { src: "/c-division-prize.jpeg", alt: "C-Division" },
+              { src: "/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg", alt: "Training Session" },
+            ].map((img, i) => (
+              <div className="home-gallery-item" key={i}>
+                <img src={img.src} alt={img.alt} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA SECTION ===== */}
+      <section className="cta-section animate-on-scroll">
+        <div className="container">
+          <h2 className="fade-in-up">
+            Ready to Start Your <span className="accent">Football Journey?</span>
+          </h2>
+          <p className="fade-in-up-delay-1">
+            Join Coffeeland FC today and become part of Chikmagalur&apos;s fastest-growing football family.
+          </p>
+          <div className="cta-btns fade-in-up-delay-2">
+            <Link href="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+              Join Academy ⚽
+            </Link>
+            <Link href="/academy" className="btn-outline" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+              View Programs
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
