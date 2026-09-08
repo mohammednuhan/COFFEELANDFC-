@@ -64,11 +64,48 @@ export default function AcademyPage() {
             <section style={{ background: "var(--bg-alt)" }} className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
-                        Age <span className="accent">Categories</span>
+                        Age <span className="accent">Groups</span>
                     </h2>
                     <p className="section-subtitle">
-                        Tailored training programs for different age groups and skill levels.
+                        We accept players from age 6 and above. Each group has tailored programs for maximum development.
                     </p>
+
+                    {/* Age Group Cards */}
+                    <div className="age-cards-grid">
+                        <div className="age-card">
+                            <div className="age-card-icon">👶</div>
+                            <div className="age-card-age">6 – 8</div>
+                            <h3 className="age-card-title">U8 Grassroots</h3>
+                            <p className="age-card-desc">Introduction to football through fun activities, basic ball skills, and coordination games.</p>
+                            <div className="age-card-schedule">Mon – Sat | Morning & Evening</div>
+                        </div>
+                        <div className="age-card">
+                            <div className="age-card-icon">⚽</div>
+                            <div className="age-card-age">9 – 12</div>
+                            <h3 className="age-card-title">U12 Development</h3>
+                            <p className="age-card-desc">Building technique, game sense, and introducing competitive small-sided matches.</p>
+                            <div className="age-card-schedule">Mon – Sat | Morning & Evening</div>
+                        </div>
+                        <div className="age-card">
+                            <div className="age-card-icon">🔥</div>
+                            <div className="age-card-age">13 – 15</div>
+                            <h3 className="age-card-title">U15 Competitive</h3>
+                            <p className="age-card-desc">Advanced tactical play, match simulation, and tournament preparation at district level.</p>
+                            <div className="age-card-schedule">Mon – Sat | Morning & Evening</div>
+                        </div>
+                        <div className="age-card">
+                            <div className="age-card-icon">🏆</div>
+                            <div className="age-card-age">16+</div>
+                            <h3 className="age-card-title">Senior Elite</h3>
+                            <p className="age-card-desc">KSFA C-Division & Super Division competition. Full match preparation and league exposure.</p>
+                            <div className="age-card-schedule">Daily | All Sessions</div>
+                        </div>
+                    </div>
+
+                    {/* Detailed Table */}
+                    <h2 className="section-title" style={{ marginTop: "4rem" }}>
+                        Detailed <span className="accent">Program Info</span>
+                    </h2>
                     <div className="table-wrapper">
                         <table className="styled-table">
                             <thead>
@@ -104,6 +141,66 @@ export default function AcademyPage() {
                 </div>
             </section>
 
+            {/* ===== TRAINING GROUNDS SECTION ===== */}
+            <section className="animate-on-scroll">
+                <div className="container">
+                    <h2 className="section-title">
+                        Training <span className="accent">Grounds</span>
+                    </h2>
+                    <p className="section-subtitle">
+                        We train on two types of grounds to give our players diverse playing experience.
+                    </p>
+                    <div className="grounds-grid">
+                        <div className="ground-card">
+                            <div className="ground-card-header turf-header">
+                                <span className="ground-icon">🟢</span>
+                                <h3>Turf Ground</h3>
+                            </div>
+                            <div className="ground-card-body">
+                                <p className="ground-desc">
+                                    Our premium artificial turf ground provides a consistent, professional playing surface
+                                    for focused training and competitive match practice.
+                                </p>
+                                <ul className="ground-features">
+                                    <li><span className="ground-feature-icon">⚽</span> Artificial turf with FIFA-standard grass blades</li>
+                                    <li><span className="ground-feature-icon">🌟</span> Floodlit for evening training sessions</li>
+                                    <li><span className="ground-feature-icon">📐</span> Full-size and half-size pitch options</li>
+                                    <li><span className="ground-feature-icon">✅</span> All-weather playing surface — no mud or waterlogging</li>
+                                    <li><span className="ground-feature-icon">🎯</span> Ideal for tactical drills, small-sided games & match simulation</li>
+                                </ul>
+                                <div className="ground-timing">
+                                    <span className="ground-timing-label">Training Hours</span>
+                                    <span className="ground-timing-time">4:30 PM – 6:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="ground-card">
+                            <div className="ground-card-header mud-header">
+                                <span className="ground-icon">🟤</span>
+                                <h3>Mud / Clay Ground</h3>
+                            </div>
+                            <div className="ground-card-body">
+                                <p className="ground-desc">
+                                    Our traditional mud and clay ground provides authentic playing conditions that build
+                                    strength, balance, and adaptability in young players.
+                                </p>
+                                <ul className="ground-features">
+                                    <li><span className="ground-feature-icon">⚽</span> Natural mud/clay surface for real-world conditions</li>
+                                    <li><span className="ground-feature-icon">💪</span> Builds core strength and footwork on uneven terrain</li>
+                                    <li><span className="ground-feature-icon">👶</span> Perfect for U8 and U12 grassroots training</li>
+                                    <li><span className="ground-feature-icon">🌧️</span> Morning sessions with optimal ground conditions</li>
+                                    <li><span className="ground-feature-icon">🏃</span> Ideal for conditioning, endurance & ball control drills</li>
+                                </ul>
+                                <div className="ground-timing">
+                                    <span className="ground-timing-label">Training Hours</span>
+                                    <span className="ground-timing-time">6:00 AM – 8:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
@@ -120,7 +217,7 @@ export default function AcademyPage() {
                                 <strong style={{ color: "var(--text)" }}>Evening Session:</strong> 4:30 PM – 6:30 PM
                             </p>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-                                Main training ground for all age groups. Natural grass turf.
+                                Main training ground for all age groups. Natural mud/clay surface with ample space for drills and match play.
                             </p>
                         </div>
                         <div className="card gold-border">
@@ -129,7 +226,7 @@ export default function AcademyPage() {
                                 <strong style={{ color: "var(--text)" }}>Evening Session:</strong> 4:30 PM – 6:30 PM
                             </p>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-                                Dedicated turf facility for focused training and match practice.
+                                Dedicated artificial turf facility for focused training, match practice, and competitive play.
                             </p>
                         </div>
                     </div>

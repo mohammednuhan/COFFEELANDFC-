@@ -2869,5 +2869,665 @@ label {
   .quick-stats-grid { grid-template-columns: 1fr 1fr; }
   .quick-stat-num { font-size: 1.3rem; }
   .package-price { font-size: 2rem; }
-  .style-table th, .style-table td { padding: 0.7rem 0.8rem; }
+  .styled-table th, .styled-table td { padding: 0.7rem 0.8rem; }
+}
+
+/* ========== COACH MAIN CARD ========== */
+.coach-main-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  background: var(--surface);
+  border: 1px solid var(--glass-gold-border);
+  border-radius: 24px;
+  padding: 3rem;
+  transition: all 0.5s var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-main-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: var(--gradient-gold);
+}
+
+.coach-main-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-4px);
+}
+
+.coach-main-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.coach-main-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--gradient-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  border: 3px solid var(--accent);
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.coach-main-avatar:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.coach-main-cert-badge {
+  background: var(--gradient-gold);
+  color: var(--bg);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.coach-main-name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+}
+
+.coach-main-role {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.coach-main-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.coach-stat-item {
+  text-align: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s var(--ease-out);
+}
+
+.coach-stat-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold);
+}
+
+.coach-stat-num {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.coach-stat-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.3rem;
+}
+
+.coach-main-bio {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.coach-main-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.coach-tag {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.3s var(--ease-out);
+}
+
+.coach-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ========== GROUNDS SECTION ========== */
+.grounds-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.ground-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.ground-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--glow-green);
+  border-color: var(--primary-light);
+}
+
+.ground-card-header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.turf-header {
+  background: linear-gradient(135deg, #1B5E20, #2E7D32);
+}
+
+.mud-header {
+  background: linear-gradient(135deg, #5D4037, #795548);
+}
+
+.ground-icon {
+  font-size: 2.5rem;
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.ground-card:hover .ground-icon {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.ground-card-header h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.ground-card-body {
+  padding: 2rem;
+}
+
+.ground-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.ground-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.ground-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s var(--ease-out);
+}
+
+.ground-features li:hover {
+  color: var(--text);
+  padding-left: 8px;
+}
+
+.ground-feature-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.ground-timing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+}
+
+.ground-timing-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ground-timing-time {
+  color: var(--accent);
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* ========== AGE CARDS GRID ========== */
+.age-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.age-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.5s var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.age-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 3px;
+  background: var(--gradient-gold);
+  transition: left 0.5s var(--ease-out);
+}
+
+.age-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--glow-gold);
+  border-color: var(--accent);
+}
+
+.age-card:hover::before { left: 0; }
+
+.age-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.age-card:hover .age-card-icon {
+  transform: scale(1.3) rotate(-10deg);
+}
+
+.age-card-age {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.age-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.age-card-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.age-card-schedule {
+  display: inline-block;
+  background: rgba(46, 125, 50, 0.15);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-light);
+}
+
+/* ========== HOME PAGE NEW SECTIONS ========== */
+.home-about {
+  padding: 100px 0;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.home-about-text h2 { margin-bottom: 1.2rem; }
+
+.home-about-text > p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.home-about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.home-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s var(--ease-out);
+}
+
+.home-highlight-item:hover { transform: translateX(6px); }
+
+.highlight-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.home-about-visual { position: relative; }
+
+.home-about-image-stack {
+  position: relative;
+  height: 400px;
+}
+
+.home-about-img {
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  position: absolute;
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.home-about-img:hover { transform: scale(1.03); z-index: 3; }
+
+.home-about-img-1 {
+  width: 300px;
+  height: 250px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.home-about-img-2 {
+  width: 260px;
+  height: 220px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.home-about-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--gradient-gold);
+  color: var(--bg);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  z-index: 3;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.home-about-badge:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+.badge-year {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.badge-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== HOME PROGRAMS ========== */
+.home-programs {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt));
+}
+
+.home-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.home-program-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.home-program-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--glow-green);
+  border-color: var(--primary-light);
+}
+
+.home-program-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.home-program-card:hover .home-program-icon {
+  transform: scale(1.3) rotate(-10deg);
+}
+
+.home-program-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.home-program-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.home-program-link {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s var(--ease-out);
+}
+
+.home-program-link:hover { transform: translateX(4px); }
+
+/* ========== HOME COACHES ========== */
+.home-coaches {
+  padding: 100px 0;
+}
+
+.home-coaches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.home-coaches-text h2 { margin-bottom: 1rem; }
+
+.home-coaches-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.home-coaches-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.home-coach-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.home-coach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--glow-gold);
+  border-color: var(--accent);
+}
+
+.home-coach-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+}
+
+.home-coach-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.home-coach-role {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-coach-badge {
+  display: inline-block;
+  background: var(--glass-gold);
+  border: 1px solid var(--glass-gold-border);
+  color: var(--accent);
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* ========== HOME GALLERY ========== */
+.home-gallery {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt));
+}
+
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.home-gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s var(--ease-bounce);
+}
+
+.home-gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow-green);
+}
+
+.home-gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.home-gallery-item:hover img { transform: scale(1.1); }
+
+/* ========== RESPONSIVE FOR NEW SECTIONS ========== */
+@media (max-width: 968px) {
+  .coach-main-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .coach-main-left { align-items: center; }
+  .coach-main-stats { grid-template-columns: repeat(3, 1fr); }
+  .coach-main-tags { justify-content: center; }
+
+  .grounds-grid { grid-template-columns: 1fr; }
+  .age-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .home-about-image-stack { height: 300px; }
+  .home-about-img-1 { width: 240px; height: 200px; }
+  .home-about-img-2 { width: 220px; height: 180px; }
+  .home-programs-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-coaches-grid { grid-template-columns: 1fr; }
+  .home-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .age-cards-grid { grid-template-columns: 1fr; }
+  .coach-main-stats { grid-template-columns: 1fr; }
+  .home-programs-grid { grid-template-columns: 1fr; }
+  .home-coaches-cards { grid-template-columns: 1fr; }
+  .home-gallery-grid { grid-template-columns: 1fr; }
+  .grounds-grid { grid-template-columns: 1fr; }
+  .coach-main-card { padding: 1.5rem; }
+  .home-about-image-stack { height: 250px; }
+  .home-about-img-1 { width: 200px; height: 170px; }
+  .home-about-img-2 { width: 180px; height: 150px; }
 }

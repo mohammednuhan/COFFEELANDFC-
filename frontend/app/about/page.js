@@ -94,35 +94,59 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll">
+            <section className="animate-on-scroll" id="coaches">
                 <div className="container">
                     <h2 className="section-title">
-                        Our <span className="accent">Leadership</span>
+                        Our <span className="accent">Coaches</span>
                     </h2>
                     <p className="section-subtitle">
                         Guided by experienced professionals passionate about developing the next generation.
                     </p>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
-                        <div className="card" style={{ textAlign: "center" }}>
-                            <div style={{
-                                width: "100px", height: "100px", borderRadius: "50%",
-                                background: "var(--gradient-green)", margin: "0 auto 1.5rem",
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                                fontSize: "2.5rem", transition: "transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(360deg) scale(1.1)"}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0) scale(1)"}
-                            >
-                                ⚽
+
+                    {/* Main Coach Card - Loyston Andrade */}
+                    <div className="coach-main-card">
+                        <div className="coach-main-left">
+                            <div className="coach-main-avatar">
+                                <span>⚽</span>
                             </div>
-                            <h3 style={{ marginBottom: "0.5rem" }}>Loyston</h3>
-                            <p style={{ color: "var(--accent)", fontWeight: 600, marginBottom: "1rem", fontSize: "0.9rem" }}>
-                                Technical Director
-                            </p>
-                            <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-                                Leading the academy&apos;s technical development program with years of coaching experience and a passion for grassroots football.
-                            </p>
+                            <div className="coach-main-cert-badge">C-License Certified</div>
                         </div>
+                        <div className="coach-main-right">
+                            <h3 className="coach-main-name">Loyston Andrade</h3>
+                            <p className="coach-main-role">Technical Director & Head Coach</p>
+                            <div className="coach-main-stats">
+                                <div className="coach-stat-item">
+                                    <span className="coach-stat-num">5+</span>
+                                    <span className="coach-stat-label">Years Experience</span>
+                                </div>
+                                <div className="coach-stat-item">
+                                    <span className="coach-stat-num">C</span>
+                                    <span className="coach-stat-label">License Level</span>
+                                </div>
+                                <div className="coach-stat-item">
+                                    <span className="coach-stat-num">400+</span>
+                                    <span className="coach-stat-label">Players Coached</span>
+                                </div>
+                            </div>
+                            <p className="coach-main-bio">
+                                Loyston Andrade is a C-License certified football coach with over 5 years of dedicated coaching experience.
+                                As the Technical Director and Head Coach at Coffeeland FC, he leads the academy&apos;s technical development program
+                                with a deep passion for grassroots football. His expertise spans across all age groups — from nurturing beginners
+                                in the U8 Grassroots program to preparing senior players for KSFA C-Division and Super Division competition.
+                                Under his guidance, Coffeeland FC has grown from a small initiative into one of Chikmagalur&apos;s most respected
+                                football academies with over 400 active students and multiple tournament victories.
+                            </p>
+                            <div className="coach-main-tags">
+                                <span className="coach-tag"> Grassroots Development</span>
+                                <span className="coach-tag"> KSFA C-Division</span>
+                                <span className="coach-tag"> Youth Training</span>
+                                <span className="coach-tag"> Match Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Supporting Team */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginTop: "3rem" }}>
                         <div className="card" style={{ textAlign: "center" }}>
                             <div style={{
                                 width: "100px", height: "100px", borderRadius: "50%",
@@ -141,6 +165,26 @@ export default function AboutPage() {
                             </p>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
                                 A dedicated team managing operations, events, partnerships, and ensuring the academy runs at the highest standards.
+                            </p>
+                        </div>
+                        <div className="card" style={{ textAlign: "center" }}>
+                            <div style={{
+                                width: "100px", height: "100px", borderRadius: "50%",
+                                background: "var(--gradient-green)", margin: "0 auto 1.5rem",
+                                display: "flex", alignItems: "center", justifyContent: "center",
+                                fontSize: "2.5rem", transition: "transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(360deg) scale(1.1)"}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0) scale(1)"}
+                            >
+                                👥
+                            </div>
+                            <h3 style={{ marginBottom: "0.5rem" }}>Assistant Coaches</h3>
+                            <p style={{ color: "var(--accent)", fontWeight: 600, marginBottom: "1rem", fontSize: "0.9rem" }}>
+                                Training & Development
+                            </p>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
+                                Supporting the head coach with day-to-day training sessions, fitness programs, and player assessment across all age categories.
                             </p>
                         </div>
                     </div>
