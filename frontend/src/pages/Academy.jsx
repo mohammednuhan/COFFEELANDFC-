@@ -1,9 +1,7 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
-export default function AcademyPage() {
+export default function Academy() {
     const [showFees, setShowFees] = useState(false);
 
     useEffect(() => {
@@ -70,7 +68,6 @@ export default function AcademyPage() {
                         We accept players from age 6 and above. Each group has tailored programs for maximum development.
                     </p>
 
-                    {/* Age Group Cards */}
                     <div className="age-cards-grid">
                         <div className="age-card">
                             <div className="age-card-icon">👶</div>
@@ -102,7 +99,6 @@ export default function AcademyPage() {
                         </div>
                     </div>
 
-                    {/* Detailed Table */}
                     <h2 className="section-title" style={{ marginTop: "4rem" }}>
                         Detailed <span className="accent">Program Info</span>
                     </h2>
@@ -141,7 +137,6 @@ export default function AcademyPage() {
                 </div>
             </section>
 
-            {/* ===== TRAINING GROUNDS SECTION ===== */}
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">
@@ -256,20 +251,20 @@ export default function AcademyPage() {
                                 <h3>Monthly</h3>
                                 <div className="package-price">₹1,000<small>/mo</small></div>
                                 <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>Perfect for beginners testing their skills.</p>
-                                <Link href="/contact" className="btn-outline full-width">Enroll Now</Link>
+                                <Link to="/contact" className="btn-outline full-width">Enroll Now</Link>
                             </div>
                             <div className="package-card featured" style={{ position: "relative" }}>
                                 <span className="badge">Most Popular</span>
                                 <h3>Quarterly</h3>
                                 <div className="package-price">₹4,000<small>/3mo</small></div>
                                 <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>Consistent training with discounted rate.</p>
-                                <Link href="/contact" className="btn-primary full-width">Enroll Now</Link>
+                                <Link to="/contact" className="btn-primary full-width">Enroll Now</Link>
                             </div>
                             <div className="package-card">
                                 <h3>Annual</h3>
                                 <div className="package-price">₹10,000<small>/yr</small></div>
                                 <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>Full commitment with elite perks.</p>
-                                <Link href="/contact" className="btn-outline full-width">Enroll Now</Link>
+                                <Link to="/contact" className="btn-outline full-width">Enroll Now</Link>
                             </div>
                         </div>
                     )}
@@ -303,7 +298,7 @@ export default function AcademyPage() {
                 <div className="container">
                     <h2 className="fade-in-up">Ready to <span className="accent">Join the Academy?</span></h2>
                     <p className="fade-in-up-delay-1">Take the first step towards your football career with Coffeeland FC.</p>
-                    <Link href="/contact" className="btn-primary fade-in-up-delay-2" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+                    <Link to="/contact" className="btn-primary fade-in-up-delay-2" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
                         Register Now ⚽
                     </Link>
                 </div>
