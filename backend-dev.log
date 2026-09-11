@@ -1,2 +1,8 @@
 $ bun --watch src/index.ts
 error: Cannot find module '@prisma/client' from 'C:\all projects\coffeeland fc main\backend\src\config\prisma.ts'
+🗄️  Database connected (SQLite via Prisma)
+⚽ Coffeeland FC backend running at http://localhost:4000
+    Health check: http://localhost:4000/api/health
+error: Cannot find package 'bcryptjs' from 'C:\all projects\coffeeland fc main\backend\src\utils\password.ts'
+error: Cannot find package 'bcryptjs' from 'C:\all projects\coffeeland fc main\backend\src\utils\password.ts'
+error: Cannot find package 'bcryptjs' from 'C:\all projects\coffeeland fc main\backend\src\utils\password.ts'

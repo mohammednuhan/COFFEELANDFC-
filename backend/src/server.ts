@@ -1,3 +1,6 @@
+import type { IncomingMessage, ServerResponse } from "node:http";
+import { Readable } from "node:stream";
+import { createServer as createHttpServer } from "node:http";
 import { env } from "./config/env";
 import { handleCors, handleError, logger } from "./middleware/cors.middleware";
 import { routes } from "./routes";
@@ -9,6 +12,29 @@ const terminalNext: Next = async () =>
     status: 500,
     headers: { "Content-Type": "application/json" },
   });
+
+function toWebHeaders(raw: Record<string, string | string[] | undefined>): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(raw)) {
+    if (v === undefined) continue;
+    out[k] = Array.isArray(v) ? v.join(", ") : v;
+  }
+  return out;
+}
+
+async function sendWebResponse(res: ServerResponse, response: Response) {
+  res.statusCode = response.status;
+  for (const [k, v] of response.headers.entries()) {
+    res.setHeader(k, v);
+  }
+  if (response.body) {
+    const buf = Buffer.from(await response.arrayBuffer());
+    res.setHeader("Content-Length", buf.length);
+    res.end(buf);
+  } else {
+    res.end();
+  }
+}
 
 function matchPath(pattern: string, pathname: string): Record<string, string> | null {
   const patternSegs = pattern.split("/").filter(Boolean);
@@ -64,38 +90,51 @@ function findRoute(method: HttpMethod, pathname: string) {
 }
 
 export function createServer() {
-  return Bun.serve({
-    port: env.PORT,
-    hostname: "0.0.0.0",
+  return createHttpServer(async (nodeReq: IncomingMessage, nodeRes: ServerResponse) => {
+    try {
+      const host = nodeReq.headers.host ?? "localhost";
+      const url = new URL(nodeReq.url ?? "/", `http://${host}`);
 
-    async fetch(req) {
-      // OPTIONS preflight
-      const corsResponse = handleCors(req);
-      if (corsResponse) return corsResponse;
+      const hasBody = nodeReq.method !== "GET" && nodeReq.method !== "HEAD";
 
-      const url = new URL(req.url);
-      const matched = findRoute(req.method as HttpMethod, url.pathname);
+      const webReq = new Request(url, {
+        method: nodeReq.method,
+        headers: toWebHeaders(nodeReq.headers as Record<string, string | string[] | undefined>),
+        ...(hasBody
+          ? { body: Readable.toWeb(nodeReq) as unknown as ReadableStream, duplex: "half" }
+          : {}),
+      } as RequestInit & { duplex?: string });
+
+      const corsResponse = handleCors(webReq);
+      if (corsResponse) {
+        await sendWebResponse(nodeRes, corsResponse);
+        return;
+      }
+
+      const matched = findRoute(webReq.method as HttpMethod, url.pathname);
 
       if (!matched) {
-        return notFound(`Route ${req.method} ${url.pathname} not found`);
+        const resp = notFound(`Route ${webReq.method} ${url.pathname} not found`);
+        await sendWebResponse(nodeRes, resp);
+        return;
       }
 
       const ctx: RouteContext = {
-        req,
+        req: webReq,
         params: matched.params,
         query: url.searchParams,
       };
 
       const handler = compose(matched.route);
 
-      try {
-        return await logger(
-          () => handler(ctx, terminalNext),
-          req
-        );
-      } catch (error) {
-        return handleError(error);
-      }
-    },
+      const response = await logger(
+        () => handler(ctx, terminalNext),
+        webReq
+      );
+
+      await sendWebResponse(nodeRes, response);
+    } catch (error) {
+      await sendWebResponse(nodeRes, handleError(error));
+    }
   });
 }

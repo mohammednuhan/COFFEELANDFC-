@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { AppError } from "../utils/errors";
 
 function readEnv(name: string, fallback?: string): string {

@@ -8,14 +8,15 @@ async function bootstrap(): Promise<void> {
     console.log("🗄️  Database connected (SQLite via Prisma)");
 
     const server = createServer();
-    console.log(`⚽ Coffeeland FC backend running at http://localhost:${env.PORT}`);
-    console.log(`    Health check: http://localhost:${env.PORT}/api/health`);
+    server.listen(env.PORT, "0.0.0.0", () => {
+      console.log(`⚽ Coffeeland FC backend running at http://localhost:${env.PORT}`);
+      console.log(`    Health check: http://localhost:${env.PORT}/api/health`);
+    });
 
     const shutdown = async (signal: string) => {
       console.log(`\n${signal} received — shutting down...`);
       await prisma.$disconnect();
-      server.stop(true);
-      process.exit(0);
+      server.close(() => process.exit(0));
     };
 
     process.on("SIGINT", () => void shutdown("SIGINT"));

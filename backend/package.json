@@ -4,24 +4,29 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --watch src/index.ts",
-    "start": "bun src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev --name init",
     "db:studio": "prisma studio",
-    "db:seed": "bun prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts"
   },
   "prisma": {
-    "seed": "bun prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
     "jose": "^6.2.12"
   },
   "devDependencies": {
-    "@types/bun": "^1.4.1",
-    "@types/node": "^26.5.0",
-    "prisma": "^6.19.0"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.15.0",
+    "prisma": "^6.19.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
   }
 }
