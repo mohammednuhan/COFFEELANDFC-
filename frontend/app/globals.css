@@ -177,9 +177,7 @@ body::after {
 @keyframes logoFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-18px) rotate(5deg); }
-}
-
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
   .logo-bg-center { width: 300px; height: 300px; }
   .logo-bg-corner-tl, .logo-bg-corner-br { width: 160px; height: 160px; }}
 
@@ -207,7 +205,6 @@ h3 { font-size: 1.3rem; font-weight: 700; }
 }
 
 span.accent { color: var(--accent); }
-span.green { color: var(--primary-light); }
 
 /* ========== LAYOUT ========== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
@@ -315,19 +312,6 @@ nav {
 
 /* ========== NAV DROPDOWN ========== */
 .nav-item { position: relative; }
-
-/* Single "Menu" trigger styled as a pill button */
-.nav-dropdown-wrapper > .nav-dropdown-trigger {
-  border: 1px solid var(--glass-gold-border);
-  background: var(--glass);
-  border-radius: 12px;
-  padding: 0.55rem 0.75rem;
-  font-weight: 700;
-  gap: 0.4rem;
-  transition: all 0.3s var(--ease-out);
-  display: flex;
-  align-items: center;
-}
 
 /* ===== NAV JOIN BUTTON ===== */
 .nav-join-btn {
@@ -845,25 +829,6 @@ nav {
   margin-bottom: 0.8rem;
 }
 
-/* ========== INTRO SECTION ========== */
-.intro-section { padding: 100px 0; }
-
-/* ========== PROGRAMS TABS ========== */
-.tabs {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-/* ========== SCHEDULE ========== */
-.schedule-table-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  overflow-x: auto;
-}
-
-/* ========== GALLERY ========== */
-.gallery-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
-
 /* ========== CTA BTNS ========== */
 .cta-btns {
   display: flex;
@@ -872,29 +837,12 @@ nav {
   flex-wrap: wrap;
 }
 
-/* ========== INFO STRIP ========== */
-.info-strip {
-  background: var(--surface);
-  border-top: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-border);
-  padding: 1.5rem 0;
-}
-
-/* ========== ABOUT PREVIEW ========== */
-.about-preview { padding: 100px 0; }
-
 /* ========== PROGRAMS ========== */
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
 }
-
-/* ========== TESTIMONIALS ========== */
-.testimonials { padding: 100px 0; }
-
-/* ========== SPONSORS ========== */
-.sponsors-section { padding: 80px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
 
 .sponsors-grid {
   display: flex;
@@ -958,14 +906,8 @@ nav {
 .cta-section h2 { color: var(--white); margin-bottom: 1rem; position: relative; z-index: 1; }
 .cta-section p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2rem; position: relative; z-index: 1; }
 
-/* ========== WHY CHOOSE US ========== */
-.why-choose { padding: 100px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
-
 /* ========== ACHIEVEMENTS ========== */
 .achievements { padding: 100px 0; }
-
-/* ========== FIXTURES ========== */
-.fixtures { padding: 100px 0; background: linear-gradient(180deg, var(--bg-alt), #0d2b13, var(--bg-alt)); }
 
 /* ========== NEWS ========== */
 .news-meta {
@@ -1641,13 +1583,6 @@ label {
   transform: translateX(-50%) scale(1.4);
 }
 
-/* ========== EVENT CARDS ========== */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
 .event-details {
   display: flex;
   justify-content: center;
@@ -1726,9 +1661,7 @@ label {
   z-index: 999;
   animation: fadeIn 0.3s var(--ease-out);
   -webkit-tap-highlight-color: transparent;
-}
-
-@media (min-width: 969px) {
+}@media (min-width: 969px) {
   .nav-backdrop { display: none; }}
 
 .mobile-menu-btn {
@@ -1821,9 +1754,6 @@ label {
 .fade-in-up-delay-1 { animation: fadeInUp 0.8s var(--ease-out) 0.2s both; }
 .fade-in-up-delay-2 { animation: fadeInUp 0.8s var(--ease-out) 0.4s both; }
 
-/* ========== ICON ANIMATIONS ========== */
-.icon-spin:hover { animation: iconSpin 0.6s var(--ease-bounce); }
-
 @keyframes iconSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -1838,9 +1768,7 @@ label {
 @media (max-width: 1200px) {
   .container { padding: 0 1.5rem; }
   nav { padding: 1rem 1.5rem; }
-}
-
-@media (max-width: 968px) {
+}@media (max-width: 968px) {
   nav { padding: 0.8rem 1.5rem; }
   .mobile-menu-btn { display: flex; }
 
@@ -1923,9 +1851,7 @@ label {
 
   .map-container iframe { height: 300px; }
 
-  .styled-table { min-width: 500px; }}
-
-@media (max-width: 768px) {
+  .styled-table { min-width: 500px; }}@media (max-width: 768px) {
   .container { padding: 0 1.25rem; }
   section { padding: 50px 0; }
 
@@ -1954,9 +1880,7 @@ label {
   .map-container iframe { height: 280px; }
 
   .timeline-content { padding: 1.2rem; }
-  .timeline-content p { font-size: 0.9rem; }}
-
-@media (max-width: 480px) {
+  .timeline-content p { font-size: 0.9rem; }}@media (max-width: 480px) {
   .logo-text { font-size: 1.2rem; letter-spacing: 0.5px; }
   .nav-logo { height: 30px; width: 30px; }
   h1 { font-size: clamp(2rem, 8vw, 3rem); }
@@ -2023,9 +1947,7 @@ label {
   .timeline-item:nth-child(odd),
   .timeline-item:nth-child(even) { padding-left: 45px; }
   .timeline::before { left: 16px; }
-  .timeline-dot { left: 16px; width: 14px; height: 14px; }}
-
-@media (max-width: 360px) {
+  .timeline-dot { left: 16px; width: 14px; height: 14px; }}@media (max-width: 360px) {
   .container { padding: 0 1rem; }
   .logo-text { font-size: 1.05rem; }
   .quick-stats-grid { grid-template-columns: 1fr 1fr; }
@@ -2678,9 +2600,7 @@ label {
   .home-programs-grid { grid-template-columns: repeat(2, 1fr); }
   .home-coaches-grid { grid-template-columns: 1fr; }
   .home-gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 480px) {
+}@media (max-width: 480px) {
   .age-cards-grid { grid-template-columns: 1fr; }
   .coach-main-stats { grid-template-columns: 1fr; }
   .home-programs-grid { grid-template-columns: 1fr; }

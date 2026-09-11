@@ -24,7 +24,7 @@ coffeelandfc/
 │   └── next.config.mjs     # Proxies /api/* -> backend
 │
 ├── backend/                # Bun server (SQLite)
-│   ├── server.js           # API: /api/register, /api/contact, /api/students
+│   ├── src/index.ts        # API: /api/register, /api/contact, /api/students
 │   ├── package.json
 │   └── data/               # SQLite database
 │
@@ -46,15 +46,17 @@ bun run install:all
 bun run dev
 ```
 
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:3001
 - Backend:  http://localhost:4000
 
 Or run them separately:
 
 ```bash
 bun run dev:backend    # Backend on :4000
-bun run dev:frontend   # Frontend on :3000
+bun run dev:frontend   # Frontend on :3001
 ```
+
+> **Note:** The frontend proxies `/api/*` to the backend on `:4000`, so the app can reach the API at `http://localhost:3001/api/*`.
 
 ## API Endpoints
 

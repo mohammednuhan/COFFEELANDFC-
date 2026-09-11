@@ -4,10 +4,10 @@
   "private": true,
   "description": "Coffeeland FC - Football Academy App (Next.js frontend + Bun backend)",
   "scripts": {
-    "install:all": "bun install --cwd backend && npm install --prefix frontend",
-    "dev:backend": "bun --cwd backend run dev",
+    "install:all": "bun install --cwd=backend && npm install --prefix frontend",
+    "dev:backend": "bun --cwd=backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
-    "dev": "concurrently \"bun --cwd backend run dev\" \"set PORT=3001&& npm --prefix frontend run dev\"",
+    "dev": "concurrently \"bun --cwd=backend run dev\" \"npm --prefix frontend run dev\"",
     "build": "npm --prefix frontend run build",
     "start": "npm --prefix frontend run start"
   },
