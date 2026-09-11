@@ -1,0 +1,121 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
+export default function About() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <div className="page-header">
+        <div className="container">
+          <h1 className="fade-in-up">About <span className="accent">Us</span></h1>
+          <p className="fade-in-up-delay-1">The story behind Chikmagalur&apos;s most passionate football club</p>
+        </div>
+      </div>
+
+      <section className="animate-on-scroll">
+        <div className="container">
+          <h2 className="section-title">Our <span className="accent">Story</span></h2>
+          <p className="section-subtitle">From humble beginnings to a 400+ player academy — here&apos;s our journey.</p>
+          <div className="timeline">
+            {[
+              { year: "2010", text: "Coffeeland FC was founded with a vision to nurture football talent in Chikmagalur." },
+              { year: "2016", text: "Officially registered as a football club. Started structured coaching programs." },
+              { year: "2018", text: "Launched the Football Academy. Achieved KSFA affiliation." },
+              { year: "2020–2024", text: "Grew to 400+ active students. Became consistent Dasara tournament champions." },
+              { year: "2025+", text: "Expanding training centers, hosting district tournaments, and building pathways." },
+            ].map((item, i) => (
+              <div className="timeline-item" key={i}>
+                <div className="timeline-dot"></div>
+                <div className="timeline-content"><div className="timeline-year">{item.year}</div><p>{item.text}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ background: "var(--bg-alt)" }} className="animate-on-scroll">
+        <div className="container">
+          <div className="content-grid">
+            <div>
+              <h2>Our <span className="accent">Mission</span></h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginBottom: "2rem" }}>To build disciplined, skilled, and confident footballers through structured grassroots development.</p>
+              <ul className="content-list">
+                <li>Structured grassroots development programs</li>
+                <li>Character building through sport</li>
+                <li>Discipline, teamwork, and sportsmanship</li>
+                <li>Equal opportunity for all age groups</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Our <span className="accent">Vision</span></h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginBottom: "2rem" }}>To represent Chikmagalur at higher competitive levels and become the premier football development center in Karnataka.</p>
+              <ul className="content-list">
+                <li>Compete in Super Division and beyond</li>
+                <li>Produce professional-level players</li>
+                <li>Establish a state-of-the-art training facility</li>
+                <li>Create a sustainable football ecosystem</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="animate-on-scroll" id="coaches">
+        <div className="container">
+          <h2 className="section-title">Our <span className="accent">Coaches</span></h2>
+          <p className="section-subtitle">Guided by experienced professionals passionate about developing the next generation.</p>
+          <div className="coach-main-card">
+            <div className="coach-main-left">
+              <div className="coach-main-avatar"><span>⚽</span></div>
+              <div className="coach-main-cert-badge">C-License Certified</div>
+            </div>
+            <div className="coach-main-right">
+              <h3 className="coach-main-name">Loyston Andrade</h3>
+              <p className="coach-main-role">Technical Director & Head Coach</p>
+              <div className="coach-main-stats">
+                <div className="coach-stat-item"><span className="coach-stat-num">5+</span><span className="coach-stat-label">Years Experience</span></div>
+                <div className="coach-stat-item"><span className="coach-stat-num">C</span><span className="coach-stat-label">License Level</span></div>
+                <div className="coach-stat-item"><span className="coach-stat-num">400+</span><span className="coach-stat-label">Players Coached</span></div>
+              </div>
+              <p className="coach-main-bio">Loyston Andrade is a C-License certified football coach with over 5 years of dedicated coaching experience. As the Technical Director and Head Coach at Coffeeland FC, he leads the academy&apos;s technical development program with a deep passion for grassroots football.</p>
+              <div className="coach-main-tags">
+                <span className="coach-tag"> Grassroots Development</span>
+                <span className="coach-tag"> KSFA C-Division</span>
+                <span className="coach-tag"> Youth Training</span>
+                <span className="coach-tag"> Match Strategy</span>
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginTop: "3rem" }}>
+            <div className="card" style={{ textAlign: "center" }}>
+              <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "var(--gradient-green)", margin: "0 auto 1.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2.5rem" }}>🏆</div>
+              <h3 style={{ marginBottom: "0.5rem" }}>Core Management Team</h3>
+              <p style={{ color: "var(--accent)", fontWeight: 600, marginBottom: "1rem", fontSize: "0.9rem" }}>Operations & Strategy</p>
+            </div>
+            <div className="card" style={{ textAlign: "center" }}>
+              <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "var(--gradient-green)", margin: "0 auto 1.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2.5rem" }}>👥</div>
+              <h3 style={{ marginBottom: "0.5rem" }}>Assistant Coaches</h3>
+              <p style={{ color: "var(--accent)", fontWeight: 600, marginBottom: "1rem", fontSize: "0.9rem" }}>Training & Development</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="container">
+          <h2 className="fade-in-up">Want to be part of <span className="accent">our story?</span></h2>
+          <p className="fade-in-up-delay-1">Join the fastest-growing football academy in Chikmagalur.</p>
+          <Link to="/contact" className="btn-primary fade-in-up-delay-2" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>Join Coffeeland FC ⚽</Link>
+        </div>
+      </section>
+    </>
+  );
+}
