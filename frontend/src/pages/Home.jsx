@@ -63,8 +63,13 @@ function HeroSlides() {
 
 function HomeMarquee() {
   const items = [
-    "⚽ Grassroots (U8)", "⚽ Youth (U12–U15)", "⚽ Senior Team",
-    "⚽ Summer Camps", "🏆 KSFA C-Division", "⚽ Match Exposure", "🥇 District Tournaments",
+    "⚽ Grassroots (U8)",
+    "⚽ Youth (U12–U15)",
+    "⚽ Senior Team",
+    "⚽ Summer Camps",
+    "🏆 KSFA C-Division",
+    "⚽ Match Exposure",
+    "🥇 District Tournaments",
   ];
   return (
     <div className="home-marquee">
@@ -80,7 +85,11 @@ function HomeMarquee() {
 export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("visible"); }),
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
       { threshold: 0.1 }
     );
     document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
@@ -89,21 +98,42 @@ export default function Home() {
 
   return (
     <>
+      {/* ===== HERO ===== */}
       <section className="hero">
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
               <span className="hero-eyebrow fade-in-up">⚽ KSFA Affiliated Football Club</span>
-              <h1 className="fade-in-up">COFFEELAND <span className="accent">FC</span></h1>
+              <h1 className="fade-in-up">
+                COFFEELAND <span className="accent">FC</span>
+              </h1>
               <p className="hero-tagline fade-in-up-delay-1">Together Towards Tomorrow</p>
               <p className="hero-sub fade-in-up-delay-2">
                 Chikkamagaluru&apos;s premier academy developing football talent since 2010.
                 From grassroots beginners to KSFA C-Division competitors — build your football future with us.
               </p>
               <div className="hero-feature-row fade-in-up-delay-2">
-                <div className="hero-feature"><span className="hero-feature-icon">🏅</span><div><strong>KSFA</strong><small>Registered Club</small></div></div>
-                <div className="hero-feature"><span className="hero-feature-icon">🧑‍🏫</span><div><strong>Elite</strong><small>Coaching Staff</small></div></div>
-                <div className="hero-feature"><span className="hero-feature-icon">🏟️</span><div><strong>League</strong><small>Match Exposure</small></div></div>
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🏅</span>
+                  <div>
+                    <strong>KSFA</strong>
+                    <small>Registered Club</small>
+                  </div>
+                </div>
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🧑‍🏫</span>
+                  <div>
+                    <strong>Elite</strong>
+                    <small>Coaching Staff</small>
+                  </div>
+                </div>
+                <div className="hero-feature">
+                  <span className="hero-feature-icon">🏟️</span>
+                  <div>
+                    <strong>League</strong>
+                    <small>Match Exposure</small>
+                  </div>
+                </div>
               </div>
               <div className="hero-stats-inline fade-in-up-delay-2">
                 <span className="stat-badge">🏆 <AnimatedCounter target={25} suffix="+" /> Trophies</span>
@@ -126,78 +156,141 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== MARQUEE ===== */}
       <HomeMarquee />
-      <div className="stripe-divider" aria-hidden="true"></div>
 
+      {/* ===== QUICK STATS ===== */}
       <div className="quick-stats">
         <div className="container">
           <div className="quick-stats-grid">
-            <div className="quick-stat"><span className="quick-stat-icon">🏫</span><span className="quick-stat-num"><AnimatedCounter target={14} suffix="+" /></span><span className="quick-stat-label">Years of Football</span></div>
-            <div className="quick-stat"><span className="quick-stat-icon">👨‍👩‍👧‍👦</span><span className="quick-stat-num"><AnimatedCounter target={400} suffix="+" /></span><span className="quick-stat-label">Active Students</span></div>
-            <div className="quick-stat"><span className="quick-stat-icon">⚽</span><span className="quick-stat-num"><AnimatedCounter target={6} suffix="+" /></span><span className="quick-stat-label">Age Groups</span></div>
-            <div className="quick-stat"><span className="quick-stat-icon">🏆</span><span className="quick-stat-num">100%</span><span className="quick-stat-label">KSFA Recognized</span></div>
+            <div className="quick-stat">
+              <span className="quick-stat-icon">🏫</span>
+              <span className="quick-stat-num"><AnimatedCounter target={14} suffix="+" /></span>
+              <span className="quick-stat-label">Years of Football</span>
+            </div>
+            <div className="quick-stat">
+              <span className="quick-stat-icon">👨‍👩‍👧‍👦</span>
+              <span className="quick-stat-num"><AnimatedCounter target={400} suffix="+" /></span>
+              <span className="quick-stat-label">Active Students</span>
+            </div>
+            <div className="quick-stat">
+              <span className="quick-stat-icon">⚽</span>
+              <span className="quick-stat-num">6+</span>
+              <span className="quick-stat-label">Age Groups</span>
+            </div>
+            <div className="quick-stat">
+              <span className="quick-stat-icon">🏆</span>
+              <span className="quick-stat-num">100%</span>
+              <span className="quick-stat-label">KSFA Recognized</span>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* ===== ABOUT PREVIEW ===== */}
       <section className="home-about animate-on-scroll">
         <div className="container">
           <div className="home-about-grid">
             <div className="home-about-text">
               <span className="section-eyebrow">About The Club</span>
-              <h2>Building Champions <span className="accent">Since 2010</span></h2>
-              <p>Coffeeland FC was founded with a vision to nurture football talent in Chikmagalur. What started with a handful of passionate players has grown into one of the region&apos;s most respected football academies with over 400 active students.</p>
+              <h2>
+                Building Champions <span className="accent">Since 2010</span>
+              </h2>
+              <p>
+                Coffeeland FC was founded with a vision to nurture football talent in Chikmagalur.
+                What started with a handful of passionate players has grown into one of the region&apos;s
+                most respected football academies with over 400 active students.
+              </p>
               <div className="home-about-highlights">
-                {["KSFA Affiliated & Recognized", "C-Division League Competitors", "Multiple Tournament Champions", "Professional Coaching Staff"].map((t, i) => (
-                  <div className="home-highlight-item" key={i}><span className="highlight-check">✓</span><span>{t}</span></div>
-                ))}
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>KSFA Affiliated & Recognized</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>C-Division League Competitors</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>Multiple Tournament Champions</span>
+                </div>
+                <div className="home-highlight-item">
+                  <span className="highlight-check">✓</span>
+                  <span>Professional Coaching Staff</span>
+                </div>
               </div>
-              <Link to="/about" className="btn-primary" style={{ marginTop: "1.5rem" }}>Learn More About Us</Link>
+              <Link to="/about" className="btn-primary" style={{ marginTop: "1.5rem" }}>
+                Learn More About Us
+              </Link>
             </div>
             <div className="home-about-visual">
               <div className="home-about-image-stack">
                 <img src="/team photo.jpeg" alt="Coffeeland FC Team" className="home-about-img home-about-img-1" />
                 <img src="/dasara-champions.jpeg" alt="Dasara Champions" className="home-about-img home-about-img-2" />
-                <div className="home-about-badge"><span className="badge-year">14+</span><span className="badge-label">Years</span></div>
+                <div className="home-about-badge">
+                  <span className="badge-year">14+</span>
+                  <span className="badge-label">Years</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ===== PROGRAMS PREVIEW ===== */}
       <section className="home-programs animate-on-scroll">
         <div className="container">
           <div className="section-head">
             <span className="section-eyebrow">What We Offer</span>
             <h2>Our <span className="accent">Programs</span></h2>
-            <p className="section-subtitle">From grassroots to competitive football — we have programs for every age and skill level.</p>
+            <p className="section-subtitle">
+              From grassroots to competitive football — we have programs for every age and skill level.
+            </p>
           </div>
           <div className="home-programs-grid">
-            {[
-              { icon: "👶", title: "Grassroots (U8)", desc: "Fun-based learning for ages 6–8. Ball mastery, coordination, and building love for the game." },
-              { icon: "⚽", title: "Development (U12)", desc: "Technique and game sense for ages 9–12. Small-sided games and progressive skill building." },
-              { icon: "🔥", title: "Competitive (U15)", desc: "Tactical play and match simulation for ages 13–15. Tournament preparation and strategy." },
-              { icon: "🏆", title: "Senior Elite", desc: "KSFA competition preparation for 16+ players. C-Division and Super Division exposure." },
-            ].map((p, i) => (
-              <div className="home-program-card" key={i}>
-                <div className="home-program-icon">{p.icon}</div>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <Link to="/academy" className="home-program-link">Explore →</Link>
-              </div>
-            ))}
+            <div className="home-program-card">
+              <div className="home-program-icon">👶</div>
+              <h3>Grassroots (U8)</h3>
+              <p>Fun-based learning for ages 6–8. Ball mastery, coordination, and building love for the game.</p>
+              <Link to="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">⚽</div>
+              <h3>Development (U12)</h3>
+              <p>Technique and game sense for ages 9–12. Small-sided games and progressive skill building.</p>
+              <Link to="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">🔥</div>
+              <h3>Competitive (U15)</h3>
+              <p>Tactical play and match simulation for ages 13–15. Tournament preparation and strategy.</p>
+              <Link to="/academy" className="home-program-link">Explore →</Link>
+            </div>
+            <div className="home-program-card">
+              <div className="home-program-icon">🏆</div>
+              <h3>Senior Elite</h3>
+              <p>KSFA competition preparation for 16+ players. C-Division and Super Division exposure.</p>
+              <Link to="/academy" className="home-program-link">Explore →</Link>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ===== COACHES PREVIEW ===== */}
       <section className="home-coaches animate-on-scroll">
         <div className="container">
           <div className="home-coaches-grid">
             <div className="home-coaches-text">
               <span className="section-eyebrow">Meet Our Team</span>
               <h2>Expert <span className="accent">Coaches</span></h2>
-              <p>Our coaching staff brings professional experience and certifications to develop every player to their full potential. Led by Loyston Andrade, a C-License certified coach with 5+ years of dedicated coaching experience.</p>
-              <Link to="/about#coaches" className="btn-outline" style={{ marginTop: "1rem" }}>Meet The Team</Link>
+              <p>
+                Our coaching staff brings professional experience and certifications to develop
+                every player to their full potential. Led by Loyston Andrade, a C-License certified
+                coach with 5+ years of dedicated coaching experience.
+              </p>
+              <Link to="/about#coaches" className="btn-outline" style={{ marginTop: "1rem" }}>
+                Meet The Team
+              </Link>
             </div>
             <div className="home-coaches-cards">
               <div className="home-coach-card">
@@ -217,6 +310,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== GALLERY PREVIEW ===== */}
       <section className="home-gallery animate-on-scroll">
         <div className="container">
           <div className="section-head">
@@ -233,19 +327,30 @@ export default function Home() {
               { src: "/c-division-prize.jpeg", alt: "C-Division" },
               { src: "/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg", alt: "Training Session" },
             ].map((img, i) => (
-              <div className="home-gallery-item" key={i}><img src={img.src} alt={img.alt} /></div>
+              <div className="home-gallery-item" key={i}>
+                <img src={img.src} alt={img.alt} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ===== CTA SECTION ===== */}
       <section className="cta-section animate-on-scroll">
         <div className="container">
-          <h2 className="fade-in-up">Ready to Start Your <span className="accent">Football Journey?</span></h2>
-          <p className="fade-in-up-delay-1">Join Coffeeland FC today and become part of Chikmagalur&apos;s fastest-growing football family.</p>
+          <h2 className="fade-in-up">
+            Ready to Start Your <span className="accent">Football Journey?</span>
+          </h2>
+          <p className="fade-in-up-delay-1">
+            Join Coffeeland FC today and become part of Chikmagalur&apos;s fastest-growing football family.
+          </p>
           <div className="cta-btns fade-in-up-delay-2">
-            <Link to="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>Join Academy ⚽</Link>
-            <Link to="/academy" className="btn-outline" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>View Programs</Link>
+            <Link to="/contact" className="btn-primary" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+              Join Academy ⚽
+            </Link>
+            <Link to="/academy" className="btn-outline" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
+              View Programs
+            </Link>
           </div>
         </div>
       </section>

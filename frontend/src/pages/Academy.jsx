@@ -68,6 +68,7 @@ export default function Academy() {
                         We accept players from age 6 and above. Each group has tailored programs for maximum development.
                     </p>
 
+                    {/* Age Group Cards */}
                     <div className="age-cards-grid">
                         <div className="age-card">
                             <div className="age-card-icon">👶</div>
@@ -99,6 +100,7 @@ export default function Academy() {
                         </div>
                     </div>
 
+                    {/* Detailed Table */}
                     <h2 className="section-title" style={{ marginTop: "4rem" }}>
                         Detailed <span className="accent">Program Info</span>
                     </h2>
@@ -137,6 +139,7 @@ export default function Academy() {
                 </div>
             </section>
 
+            {/* ===== TRAINING GROUNDS SECTION ===== */}
             <section className="animate-on-scroll">
                 <div className="container">
                     <h2 className="section-title">

@@ -15,13 +15,18 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => { document.body.style.overflow = ""; };
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    const handleKey = (e) => { if (e.key === "Escape") setIsMobileMenuOpen(false); };
+    const handleKey = (e) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, []);
@@ -41,18 +46,25 @@ export default function Navbar() {
       <nav>
         <Link to="/" className="logo-container" onClick={closeMenu}>
           <img src="/coffee-land-logo.jpeg" alt="Coffeeland FC Logo" className="nav-logo" />
-          <div className="logo-text">COFFEELAND <span>FC</span></div>
+          <div className="logo-text">
+            COFFEELAND <span>FC</span>
+          </div>
         </Link>
+
         <button
           className={`mobile-menu-btn ${isMobileMenuOpen ? "open-menu" : ""}`}
           aria-label="Toggle Menu"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
         {isMobileMenuOpen && (
           <div className="nav-backdrop" onClick={closeMenu} aria-hidden="true"></div>
         )}
+
         <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
           {navLinks.map((item) => (
             <li key={item.href} className="nav-item">
@@ -66,7 +78,9 @@ export default function Navbar() {
             </li>
           ))}
           <li className="nav-item">
-            <Link to="/contact" className="nav-join-btn" onClick={closeMenu}>Join Now</Link>
+            <Link to="/contact" className="nav-join-btn" onClick={closeMenu}>
+              Join Now
+            </Link>
           </li>
         </ul>
       </nav>

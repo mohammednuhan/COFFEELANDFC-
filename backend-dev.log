@@ -1,0 +1,2 @@
+$ bun --watch src/index.ts
+error: Cannot find module '@prisma/client' from 'C:\all projects\coffeeland fc main\backend\src\config\prisma.ts'

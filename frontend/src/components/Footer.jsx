@@ -6,7 +6,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand-section">
-            <div className="footer-brand">COFFEELAND <span>FC</span></div>
+            <div className="footer-brand">
+              COFFEELAND <span>FC</span>
+            </div>
             <p>Developing football talent in Chikmagalur since 2010. KSFA affiliated club committed to grassroots excellence.</p>
             <div className="footer-social-icons">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="Facebook" aria-label="Facebook">📘</a>
@@ -15,6 +17,7 @@ export default function Footer() {
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="YouTube" aria-label="YouTube">🎬</a>
             </div>
           </div>
+
           <div className="footer-links-section">
             <h4>Quick Links</h4>
             <ul>
@@ -27,6 +30,7 @@ export default function Footer() {
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
+
           <div className="footer-contact-section">
             <h4>Contact</h4>
             <p>📍 Vijaya Nagar, Chikkamagaluru – 577101</p>
@@ -35,6 +39,7 @@ export default function Footer() {
             <p>✉️ info@coffeelandfc.com</p>
           </div>
         </div>
+
         <div className="footer-bottom">
           <p>&copy; 2026 Coffeeland FC Academy, Chikmagalur. All rights reserved.</p>
         </div>

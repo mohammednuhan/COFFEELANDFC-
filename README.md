@@ -2,26 +2,22 @@
 
 Football Academy website for **Coffeeland FC**, Chikkamagaluru's premier KSFA-affiliated football club.
 
-A clean, modern app with a **Next.js frontend** and a **Bun backend** (SQLite), themed around the club logo (green `#1B5E20` + gold `#D4AF37`).
+A clean, modern app with a **Vite + React frontend** and a **Bun backend** (SQLite), themed around the club logo (green `#1B5E20` + gold `#D4AF37`).
 
 ## Project Structure
 
 ```
 coffeelandfc/
-├── frontend/               # Next.js 16 (React 19) UI
-│   ├── app/
-│   │   ├── layout.js       # Root layout (Navbar + Footer + logo background)
+├── frontend/               # Vite + React 19 UI
+│   ├── index.html          # Entry HTML (fonts, favicon)
+│   ├── vite.config.js      # Proxies /api/* -> backend
+│   ├── src/
+│   │   ├── main.jsx        # React entry
+│   │   ├── App.jsx         # Router + layout (Navbar + Footer + logo background)
 │   │   ├── globals.css     # Design system (logo colors, animations)
-│   │   ├── page.js         # Home
-│   │   ├── about/page.js   # About
-│   │   ├── academy/page.js # Academy
-│   │   ├── contact/page.js # Contact
-│   │   ├── events/page.js  # Events
-│   │   ├── news/page.js    # News
-│   │   ├── sponsors/page.js# Sponsors
-│   │   └── components/     # Navbar + Footer
-│   ├── public/             # Static assets (logo, images)
-│   └── next.config.mjs     # Proxies /api/* -> backend
+│   │   ├── components/     # Navbar + Footer
+│   │   └── pages/          # Home, About, Academy, Contact, Events, News, Sponsors
+│   └── public/             # Static assets (logo, images)
 │
 ├── backend/                # Bun server (SQLite)
 │   ├── src/index.ts        # API: /api/register, /api/contact, /api/students
