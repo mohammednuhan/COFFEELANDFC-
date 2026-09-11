@@ -1,8 +1,14 @@
 import { env } from "./config/env";
 import { handleCors, handleError, logger } from "./middleware/cors.middleware";
 import { routes } from "./routes";
-import type { HttpMethod, Middleware, Route, RouteContext } from "./types";
+import type { HttpMethod, Middleware, Next, Route, RouteContext } from "./types";
 import { notFound } from "./utils/response";
+
+const terminalNext: Next = async () =>
+  new Response(JSON.stringify({ error: "Unhandled request" }), {
+    status: 500,
+    headers: { "Content-Type": "application/json" },
+  });
 
 function matchPath(pattern: string, pathname: string): Record<string, string> | null {
   const patternSegs = pattern.split("/").filter(Boolean);
@@ -27,7 +33,7 @@ function matchPath(pattern: string, pathname: string): Record<string, string> | 
 function compose(route: Route): Middleware {
   const chain = [...(route.middleware ?? []), route.handler];
 
-  const dispatch = (index: number): Middleware => (ctx) => {
+  const dispatch = (index: number): Middleware => (ctx, _next) => {
     const mw = chain[index];
     if (!mw) {
       return new Response(JSON.stringify({ error: "Unhandled request" }), {
@@ -37,7 +43,7 @@ function compose(route: Route): Middleware {
     }
 
     const result = mw(ctx, () => {
-      const nextResult = dispatch(index + 1)(ctx);
+      const nextResult = dispatch(index + 1)(ctx, terminalNext);
       return nextResult instanceof Promise ? nextResult : Promise.resolve(nextResult);
     });
 
@@ -84,7 +90,7 @@ export function createServer() {
 
       try {
         return await logger(
-          () => handler(ctx),
+          () => handler(ctx, terminalNext),
           req
         );
       } catch (error) {

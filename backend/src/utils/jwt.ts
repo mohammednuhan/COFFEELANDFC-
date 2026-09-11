@@ -25,7 +25,7 @@ export async function verifyToken(token: string): Promise<JwtPayload | null> {
     const { payload } = await jwtVerify(token, secretKey(), {
       issuer: "coffeelandfc",
     });
-    return payload as JwtPayload;
+    return payload as unknown as JwtPayload;
   } catch {
     return null;
   }

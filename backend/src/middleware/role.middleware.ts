@@ -1,9 +1,11 @@
+import type { Middleware } from "../types";
+
 /**
  * Authorization middleware — restricts a route to specific roles.
  * Must run after `requireAuth`.
  */
 export const requireRoles =
-  (...roles: string[]) =>
+  (...roles: string[]): Middleware =>
   async (ctx, next) => {
     if (!ctx.user) {
       return new Response(JSON.stringify({ error: "Authentication required" }), {

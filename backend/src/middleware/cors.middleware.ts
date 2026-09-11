@@ -36,9 +36,9 @@ export function handleError(error: unknown): Response {
 /**
  * Simple request logger middleware.
  */
-export function logger(next: () => Promise<Response>, req: Request): Promise<Response> {
+export function logger(next: () => Promise<Response> | Response, req: Request): Promise<Response> {
   const start = performance.now();
-  return next().then((res) => {
+  return Promise.resolve(next()).then((res) => {
     const ms = (performance.now() - start).toFixed(1);
     console.log(`${new Date().toISOString()} ${req.method} ${new URL(req.url).pathname} ${res.status} (${ms}ms)`);
     return res;
