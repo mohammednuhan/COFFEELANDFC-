@@ -1,4 +1,3 @@
-import type { RouteContext } from "../types";
 import { AppError } from "./errors";
 
 export async function parseBody<T = Record<string, unknown>>(req: Request): Promise<T> {
@@ -28,15 +27,6 @@ export function asBool(value: unknown): boolean {
   if (typeof value === "boolean") return value;
   if (typeof value === "string") return value === "true" || value === "1";
   return Boolean(value);
-}
-
-export function hasOnly(ctx: RouteContext, ...roles: string[]): boolean {
-  return ctx.user !== undefined && roles.includes(ctx.user.role);
-}
-
-export function sanitizeAdmin<R extends Record<string, unknown>>(admin: R): R {
-  const { password: _password, ...rest } = admin;
-  return rest as R;
 }
 
 export function isEmail(value: string): boolean {

@@ -1,6 +1,6 @@
 import { AppError } from "../utils/errors";
 
-function readEnv(name: string, fallback: string): string {
+function readEnv(name: string, fallback?: string): string {
   const value = process.env[name];
   if (value === undefined || value === "") {
     if (fallback === undefined) {

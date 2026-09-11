@@ -33,26 +33,10 @@ export function noContent(extraHeaders?: Record<string, string>): Response {
   return new Response(null, { status: 204, headers: { ...CORS_HEADERS, ...extraHeaders } });
 }
 
-export function badRequest(message = "Bad request", details?: unknown): Response {
-  return json({ error: message, ...(details !== undefined ? { details } : {}) }, 400);
-}
-
 export function unauthorized(message = "Unauthorized"): Response {
   return json({ error: message }, 401);
 }
 
-export function forbidden(message = "Forbidden"): Response {
-  return json({ error: message }, 403);
-}
-
 export function notFound(message = "Not found"): Response {
   return json({ error: message }, 404);
-}
-
-export function conflict(message = "Conflict"): Response {
-  return json({ error: message }, 409);
-}
-
-export function serverError(message = "Internal server error"): Response {
-  return json({ error: message }, 500);
 }

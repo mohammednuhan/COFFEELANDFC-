@@ -1,6 +1,6 @@
 import { prisma } from "../config/prisma";
 import type { Prisma } from "@prisma/client";
-import type { RouteContext, Next } from "../types";
+import type { RouteContext, Middleware } from "../types";
 import { AppError } from "../utils/errors";
 import { hashPassword } from "../utils/password";
 import { created, noContent, notFound, ok } from "../utils/response";
@@ -15,7 +15,7 @@ type RegisterBody = {
   location?: string;
 };
 
-export const registerStudent: Next = async (ctx) => {
+export const registerStudent: Middleware = async (ctx) => {
   const body = await parseBody<RegisterBody>(ctx.req);
 
   const name = asString(body.name);
@@ -63,7 +63,7 @@ export const registerStudent: Next = async (ctx) => {
   });
 };
 
-export const getStudents: Next = async (ctx) => {
+export const getStudents: Middleware = async (ctx) => {
   const students = await prisma.student.findMany({
     orderBy: { createdAt: "desc" },
     select: {
@@ -81,7 +81,7 @@ export const getStudents: Next = async (ctx) => {
   return ok({ count: students.length, students });
 };
 
-export const getStudent: Next = async (ctx) => {
+export const getStudent: Middleware = async (ctx) => {
   const id = asInt(ctx.params.id);
   if (id === undefined || !Number.isInteger(id)) {
     throw new AppError("Invalid student id", 400);
@@ -105,7 +105,7 @@ type UpdateBody = {
   paid?: boolean | string;
 };
 
-export const updateStudent: Next = async (ctx) => {
+export const updateStudent: Middleware = async (ctx) => {
   const id = asInt(ctx.params.id);
   if (id === undefined || !Number.isInteger(id)) {
     throw new AppError("Invalid student id", 400);
@@ -138,7 +138,7 @@ export const updateStudent: Next = async (ctx) => {
   return ok({ message: "Student updated", student: safe });
 };
 
-export const deleteStudent: Next = async (ctx) => {
+export const deleteStudent: Middleware = async (ctx) => {
   const id = asInt(ctx.params.id);
   if (id === undefined || !Number.isInteger(id)) {
     throw new AppError("Invalid student id", 400);

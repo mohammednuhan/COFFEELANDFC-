@@ -4,7 +4,7 @@ import { AppError } from "../utils/errors";
 import { signToken } from "../utils/jwt";
 import { hashPassword, verifyPassword } from "../utils/password";
 import { created, ok } from "../utils/response";
-import { asString, isEmail, parseBody, sanitizeAdmin } from "../utils/validate";
+import { asString, isEmail, parseBody } from "../utils/validate";
 
 type RegisterBody = { username?: string; email?: string; password?: string; role?: string };
 type LoginBody = { email?: string; password?: string };
@@ -52,7 +52,10 @@ export async function login(ctx: RouteContext): Promise<Response> {
     throw new AppError("Email and password are required", 400);
   }
 
-  const admin = await prisma.admin.findUnique({ where: { email } });
+  const admin = await prisma.admin.findUnique({
+    where: { email },
+    select: { id: true, username: true, email: true, password: true, role: true, createdAt: true },
+  });
   if (!admin) {
     throw new AppError("Invalid credentials", 401);
   }
@@ -69,9 +72,11 @@ export async function login(ctx: RouteContext): Promise<Response> {
     role: admin.role,
   });
 
-  const safe = sanitizeAdmin({ ...admin });
-
-  return ok({ message: "Login successful", token, admin: safe });
+  return ok({
+    message: "Login successful",
+    token,
+    admin: { id: admin.id, username: admin.username, email: admin.email, role: admin.role, createdAt: admin.createdAt },
+  });
 }
 
 export async function getMe(ctx: RouteContext): Promise<Response> {

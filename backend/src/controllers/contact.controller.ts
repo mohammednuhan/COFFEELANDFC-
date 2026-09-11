@@ -1,5 +1,5 @@
 import { prisma } from "../config/prisma";
-import type { Next } from "../types";
+import type { Middleware } from "../types";
 import { AppError } from "../utils/errors";
 import { created, noContent, notFound, ok } from "../utils/response";
 import { asInt, asString, isEmail, parseBody } from "../utils/validate";
@@ -12,7 +12,7 @@ type ContactBody = {
   message?: string;
 };
 
-export const createContact: Next = async (ctx) => {
+export const createContact: Middleware = async (ctx) => {
   const body = await parseBody<ContactBody>(ctx.req);
 
   const name = asString(body.name);
@@ -40,7 +40,7 @@ export const createContact: Next = async (ctx) => {
   });
 };
 
-export const getContacts: Next = async () => {
+export const getContacts: Middleware = async () => {
   const contacts = await prisma.contact.findMany({
     orderBy: { createdAt: "desc" },
   });
@@ -48,7 +48,7 @@ export const getContacts: Next = async () => {
   return ok({ count: contacts.length, contacts });
 };
 
-export const deleteContact: Next = async (ctx) => {
+export const deleteContact: Middleware = async (ctx) => {
   const id = asInt(ctx.params.id);
   if (id === undefined || !Number.isInteger(id)) {
     throw new AppError("Invalid contact id", 400);
