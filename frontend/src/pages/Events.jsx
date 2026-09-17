@@ -34,6 +34,13 @@ export default function Events() {
                     </h2>
                     <p className="section-subtitle">Register your team for our upcoming local tournaments.</p>
 
+                    <CountdownTimer
+                        target={new Date().getFullYear() + "-05-15T09:00:00"}
+                        title="CFC Summer Cup 2026"
+                        subtitle="Registration closes in"
+                        eventDate="Tournament: May 15 – 16, 2026"
+                    />
+
                     <div className="card gold-border event-register-card">
                         <span className="badge badge-inline" style={{ background: "var(--accent)", marginBottom: "1rem" }}>
                             REGISTRATION OPEN
