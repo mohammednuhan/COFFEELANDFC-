@@ -1,0 +1,91 @@
+[00:00:00.646] Server  LOG     ✓ Ready in 426ms
+[00:03:44.179] Server  ERROR   ⨯ ./frontend/app/layout.js:4:1
+Module not found: Can't resolve './components/Footer'
+  2 | import "./globals.css";
+  3 | import Navbar from "./components/Navbar";
+> 4 | import Footer from "./components/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const montserrat = Montserrat({
+  7 |   variable: "--font-heading",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:44.182] Server  ERROR   ⨯ ./frontend/app/layout.js:4:1
+Module not found: Can't resolve './components/Footer'
+  2 | import "./globals.css";
+  3 | import Navbar from "./components/Navbar";
+> 4 | import Footer from "./components/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const montserrat = Montserrat({
+  7 |   variable: "--font-heading",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:45.495] Server  ERROR   ⨯ ./frontend/app/layout.js:4:1
+Module not found: Can't resolve './components/Footer'
+  2 | import "./globals.css";
+  3 | import Navbar from "./components/Navbar";
+> 4 | import Footer from "./components/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const montserrat = Montserrat({
+  7 |   variable: "--font-heading",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:45.497] Server  ERROR   ⨯ ./frontend/app/layout.js:4:1
+Module not found: Can't resolve './components/Footer'
+  2 | import "./globals.css";
+  3 | import Navbar from "./components/Navbar";
+> 4 | import Footer from "./components/Footer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const montserrat = Montserrat({
+  7 |   variable: "--font-heading",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:45.499] Server  ERROR   ⨯ ./frontend/app/layout.js:3:1
+Module not found: Can't resolve './components/Navbar'
+  1 | import { Montserrat, Inter } from "next/font/google";
+  2 | import "./globals.css";
+> 3 | import Navbar from "./components/Navbar";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import Footer from "./components/Footer";
+  5 |
+  6 | const montserrat = Montserrat({
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:45.500] Server  ERROR   ⨯ ./frontend/app/layout.js:3:1
+Module not found: Can't resolve './components/Navbar'
+  1 | import { Montserrat, Inter } from "next/font/google";
+  2 | import "./globals.css";
+> 3 | import Navbar from "./components/Navbar";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import Footer from "./components/Footer";
+  5 |
+  6 | const montserrat = Montserrat({
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
