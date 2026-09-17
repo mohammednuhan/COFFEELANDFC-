@@ -1,24 +1,12 @@
-<<<<<<< HEAD:frontend/src/components/Navbar.jsx
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-=======
-"use client";
-
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
->>>>>>> 47a9ec9 (changed the design):frontend/app/components/Navbar.js
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-<<<<<<< HEAD:frontend/src/components/Navbar.jsx
   const { pathname } = useLocation();
-=======
-  const pathname = usePathname();
   const dropdownRef = useRef(null);
->>>>>>> 47a9ec9 (changed the design):frontend/app/components/Navbar.js
 
   const closeMenu = () => setIsMobileMenuOpen(false);
   const closeDropdown = () => setIsMenuOpen(false);
@@ -98,7 +86,7 @@ export default function Navbar() {
                 {navLinks.map((item) => (
                   <Link
                     key={item.href}
-                    href={item.href}
+                    to={item.href}
                     className={`nav-dropdown-item ${pathname === item.href ? "active" : ""}`}
                     onClick={closeDropdown}
                   >
@@ -113,7 +101,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/contact" className="nav-join-btn" onClick={closeMenu}>
+          <Link to="/contact" className="nav-join-btn" onClick={closeMenu}>
             <span className="nav-join-icon">⚽</span>
             <span className="nav-join-text">Join Now</span>
           </Link>
@@ -145,14 +133,6 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-<<<<<<< HEAD:frontend/src/components/Navbar.jsx
-          <li className="nav-item">
-            <Link to="/contact" className="nav-join-btn" onClick={closeMenu}>
-              Join Now
-            </Link>
-          </li>
-=======
->>>>>>> 47a9ec9 (changed the design):frontend/app/components/Navbar.js
         </ul>
       </nav>
     </header>
