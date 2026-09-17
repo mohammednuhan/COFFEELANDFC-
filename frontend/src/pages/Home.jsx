@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import GalleryLightbox from "../components/GalleryLightbox";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 
 function AnimatedCounter({ target, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -316,22 +318,21 @@ export default function Home() {
           <div className="section-head">
             <span className="section-eyebrow">From The Field</span>
             <h2>Training <span className="accent">Gallery</span></h2>
-            <p className="section-subtitle">Action, dedication, and teamwork captured on the field.</p>
+            <p className="section-subtitle">Click any photo to view it full-screen.</p>
           </div>
-          <div className="home-gallery-grid">
-            {[
-              { src: "/team photo.jpeg", alt: "Team Photo" },
-              { src: "/dasara-champions.jpeg", alt: "Dasara Champions" },
-              { src: "/tournament-winners.jpeg", alt: "Tournament Winners" },
-              { src: "/ksfa-stadium.jpeg", alt: "KSFA Stadium" },
-              { src: "/c-division-prize.jpeg", alt: "C-Division" },
-              { src: "/WhatsApp Image 2026-02-25 at 11.25.23 PM.jpeg", alt: "Training Session" },
-            ].map((img, i) => (
-              <div className="home-gallery-item" key={i}>
-                <img src={img.src} alt={img.alt} />
-              </div>
-            ))}
+          <GalleryLightbox />
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="home-testimonials animate-on-scroll">
+        <div className="container">
+          <div className="section-head">
+            <span className="section-eyebrow">Player & Parent Reviews</span>
+            <h2>What Our <span className="accent">Family Says</span></h2>
+            <p className="section-subtitle">Real experiences from the Coffeeland FC community.</p>
           </div>
+          <TestimonialCarousel />
         </div>
       </section>
 
